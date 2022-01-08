@@ -1,0 +1,28 @@
+{{ define "main" }}
+<section class="bg-light py-5 mt-2 mb-5">
+  <div class="container">
+      <div class="row row align-items-center">
+          <div class="col-8">
+              <h1 class="mt-3 text-secondary">{{ .Title }}</h1>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="container">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <div>
+          {{ .Content }}
+        </div>
+      </div>
+      <div class="col-3">
+        <div>
+          <h3 class="text-center">Sommaire</h3>
+            {{ .TableOfContents }}
+        </div>
+      </div>
+    </div>
+    {{ partial "ha-menu" . }}   
+</section>
+{{ end }}

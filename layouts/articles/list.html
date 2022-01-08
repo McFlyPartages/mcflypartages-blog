@@ -1,0 +1,33 @@
+
+{{ define "main" }}
+<div class="container">
+    <h1 class="text-center p-4">{{ .Title }}</h1>
+    <div class="alert alert-secondary text-center" role="alert">
+      {{ .Content }}
+    </div>
+    <div class="row pt-3">
+        <div class="col-12">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th scope="col"><p class="">Titre</p></th>
+                <th scope="col"><p class="text-center">Mise à jour</p></th>
+                <th scope="col"><p class="text-center">Temps de Lecture</p></th>
+              </tr>
+            </thead>
+            <tbody>
+            {{ range .Pages }}
+              <tr>
+                  <th><a class="text-decoration-none text-secondary" href="{{ .Permalink }}">{{ .Title }}</a></th>
+                  <td class="text-center">{{ dateFormat "01/2006" .Lastmod }}</td>
+                  <td class="text-center">{{ .ReadingTime }} min</td>
+                </tr>
+                {{ end }}
+              </tbody>
+            </table>
+              
+        </div>
+      </div>
+    </div>
+</div>
+{{ end }}

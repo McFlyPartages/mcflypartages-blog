@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5 text-center">
+      <img src="{{ .Site.Author.avatar }}" alt="{{ .Site.Author.name }}" />
+      <h2 class="fw-bold">Blog & Mémos</h2>
+      <h4 class="fw-bold">C'est reparti.</h4>
+      <p class="fs-5 text-center text-break">
+        Après une longue absence suite à d'autres projets et de manque de temps, me revoilà dans le maintien de mon blog.<br>
+        L'objectif reste inchangé, partager au mieux mes découvertes et mes recherches dans des domaines comme la domotique, la gestion d'un réseau domestique, un peu (beaucoup) de Linux et un domaine tout nouveau pour moi {{ "**reprendre le contrôle de mes données privées**" | markdownify }}. </p>
+      <a class="btn btn-primary btn-lg" type="button" href="a-propos">En savoir plus</a>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+        {{range ($.Site.GetPage "articles").Pages }}
+          {{ partial "liste-articles" . }}
+        {{ end }}  
+    </div>
+    
+    <div class="col-3 d-none d-lg-block">
+      
+        {{ partial "barre-laterale" . }}
+       
+    </div>
+  </div>
+</div>
+{{ end }}

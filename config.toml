@@ -1,0 +1,221 @@
+baseURL = 'http://mcflypartages.fr/'
+languageCode = 'fr-fr'
+title = 'McFlyPartages'
+
+#theme = 'mcfly-theme'
+
+#description = "Mémos & Bloc-note pour débutant."
+paginate = 4
+
+enableInlineShortcodes = true
+
+[params]
+  logo = '/images/logo.webp'
+  article = '/images/articles-vierge.webp'
+
+  # # Background image du jumbotron
+  # background = '/images/site/background-dark.jpg'
+
+  # # GitHub repo du site
+  # #gitRepo = 'https://github.com/mcflypartages/mcflypartages.github.io'
+  # # Branche par défaut
+  # #gitBranch = source
+  enableTOC = true
+ 
+
+[author]
+  name = 'McFly'
+  avatar = '/images/mcfly.webp'
+  description = ""
+
+#[markup]
+#  defaultMarkdownHandler = 'goldmark'
+#  [markup.tableOfContents]
+#    endLevel = 5
+#    ordered = false
+#    startLevel = 2
+#  [markup.goldmark]
+#    [markup.goldmark.renderer]
+#      hardWraps = false
+#      unsafe = true
+#      xhtml = false
+  
+[[menu.main]]
+  name = "Articles"
+  url = "/articles"
+  weight = 1
+
+[[menu.main]]
+  name = "Catégories"
+  url = "/categories"
+  weight = 2
+
+[[menu.main]]
+  name = "A propos"
+  url = "/a-propos"
+  weight = 3
+
+
+
+[[menu.footer]]
+name = "A propos"
+url = "/a-propos"
+[[menu.footer]]
+name = "Protection des données"
+url = "/protection-des-donnees"
+
+
+
+[[menu.social]]
+name = "Email"
+url = "contact@mcflypartages.fr"
+pre = '<i class="bi bi-envelope"></i>'
+[[menu.social]]
+name = "GitHub"
+url = "https://github.com/McFlyPartages/"
+pre = '<i class="bi bi-github"></i>'
+[[menu.social]]
+name = "YouTube"
+url = "https://www.youtube.com/c/McFlyPartages"
+pre = '<i class="bi bi-youtube"></i>'
+
+
+
+[[menu.hacf]]
+name = "Email"
+url = "contact@hacf.fr"
+pre = '<i class="bi bi-envelope"></i>'
+weight = 1
+[[menu.hacf]]
+name = "Discourse"
+url = "https://forum.hacf.fr"
+pre = '<i class="bi bi-chat"></i>'
+weight = 2
+[[menu.hacf]]
+name = "Discord"
+url = "http://discord.hacf.fr"
+pre = '<i class="bi bi-discord"></i>'
+weight = 3
+[[menu.hacf]]
+name = "Github"
+url = "http://github.hacf.fr"
+pre = '<i class="bi bi-github"></i>'
+weight = 5
+[[menu.hacf]]
+name = "Facebook Group"
+url = "http://groupe-facebook.hacf.fr"
+pre = '<i class="bi bi-facebook"></i>'
+weight = 4
+[[menu.hacf]]
+name = "YouTube"
+url = "http://youtube.hacf.fr"
+pre = '<i class="bi bi-youtube"></i>'
+weight = 6
+[[menu.hacf]]
+name = "Twitter"
+url = "http://twitter.hacf.fr"
+pre = '<i class="bi bi-twitter"></i>'
+weight = 7
+[[menu.hacf]]
+name = "Facebook"
+url = "http://page-facebook.hacf.fr"
+pre = '<i class="bi bi-facebook"></i>'
+weight = 8
+
+
+
+[[menu.aidehacf]]
+name = "Discourse"
+url = "https://forum.hacf.fr"
+pre = '<i class="bi bi-chat"></i>'
+weight = 1
+[[menu.aidehacf]]
+name = "Discord"
+url = "http://discord.hacf.fr"
+pre = '<i class="bi bi-discord"></i>'
+weight = 2
+[[menu.aidehacf]]
+name = "Facebook Group"
+url = "http://groupe-facebook.hacf.fr"
+pre = '<i class="bi bi-facebook"></i>'
+weight = 3
+
+
+
+[[menu.haoff]]
+name = "Site Web"
+url = "https://www.home-assistant.io/"
+pre = '<i class="bi bi-home"></i>'
+weight = 1
+[[menu.haoff]]
+name = "Discourse"
+url = "https://community.home-assistant.io/"
+pre = '<i class="bi bi-chat"></i>'
+weight = 2
+[[menu.haoff]]
+name = "Discord"
+url = "https://discord.com/invite/c5DvZ4e"
+pre = '<i class="bi bi-discord"></i>'
+weight = 3
+[[menu.haoff]]
+name = "Github"
+url = "https://github.com/home-assistant/"
+pre = '<i class="bi bi-github"></i>'
+weight = 6
+[[menu.haoff]]
+name = "Facebook Group"
+url = "https://www.facebook.com/groups/HomeAssistant/"
+pre = '<i class="bi bi-facebook"></i>'
+weight = 4
+[[menu.haoff]]
+name = "Reddit"
+url = "https://www.reddit.com/r/homeassistant/"
+pre = '<i class="bi bi-reddit"></i>'
+weight = 5
+[[menu.haoff]]
+name = "Twitter"
+url = "https://twitter.com/home_assistant"
+pre = '<i class="bi bi-twitter"></i>'
+weight = 7
+[[menu.haoff]]
+name = "Facebook"
+url = "https://www.facebook.com/homeassistantio"
+pre = '<i class="bi bi-facebook"></i>'
+weight = 8
+
+
+
+
+
+[[menu.aidehaoff]]
+name = "Discourse"
+url = "https://community.home-assistant.io/"
+pre = '<i class="bi bi-chat"></i>'
+weight = 1
+[[menu.aidehaoff]]
+name = "Discord"
+url = "https://discord.com/invite/c5DvZ4e"
+pre = '<i class="bi bi-discord"></i>'
+weight = 2
+[[menu.aidehaoff]]
+name = "Reddit"
+url = "https://www.reddit.com/r/homeassistant/"
+pre = '<i class="bi bi-reddit"></i>'
+weight = 3
+[[menu.aidehaoff]]
+name = "Facebook Group"
+url = "https://www.facebook.com/groups/HomeAssistant/"
+pre = '<i class="bi bi-facebook"></i>'
+weight = 4
+
+
+[imaging]
+# Default resample filter used for resizing. Default is Box,
+# a simple and fast averaging filter appropriate for downscaling.
+# See https://github.com/disintegration/imaging
+#resampleFilter = "box"
+
+# Default JPEG or WebP quality setting. Default is 75.
+quality = 100
+disableDate = true
+disableLatLong = true

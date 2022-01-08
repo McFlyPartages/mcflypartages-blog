@@ -1,0 +1,35 @@
+{{ $image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) }}
+
+{{ $small := $image.Resize "300x webp picture" }}
+{{ $medium := $image.Resize "400x webp picture" }}
+{{ $large := $image.Resize "700x webp picture" }}
+{{ $xlarge := $image.Resize "850x webp picture" }}
+
+{{ $smalljpg := $image.Resize "300x jpg picture" }}
+{{ $mediumjpg := $image.Resize "400x jpg picture" }}
+{{ $largejpg := $image.Resize "700x jpg picture" }}
+{{ $xlargejpg := $image.Resize "850x jpg picture" }}
+
+{{ $alt := .PlainText | safeHTML }}
+
+{{ $caption := "" }}
+{{ with .Title }}
+  {{ $caption = . | safeHTML }}
+{{ end }}
+
+<div class="row text-center">
+  <figure class="col border border-light text-center bg-light p-2">
+    <a href="{{ $image.RelPermalink }}">
+      <picture class="justify-align-center">
+        <source
+        sizes="(min-width: 720px) 720px, 100vw"
+        srcset="{{ $small.RelPermalink }}, {{ $medium.RelPermalink }}, {{ $large.RelPermalink }}, {{ $xlarge.RelPermalink }}" type="image/webp">
+        <img src="{{ $smalljpg.RelPermalink }}, {{ $mediumjpg.RelPermalink }}, {{ $largejpg.RelPermalink }}, {{ $xlargejpg.RelPermalink }}" type="image/jpg" 
+        alt="{{ if $alt }}{{ $alt }}{{ else if $caption }}{{ $caption | markdownify | plainify }}{{ else }}&nbsp;{{ end }}" {{ with .Title}} title="{{ . }}"{{ end }}>
+      </picture>
+    </a>
+    {{ with $caption }}
+      <figcaption class="text-center">{{ . | markdownify }}</figcaption>
+    {{ end }}
+  </figure>
+</div>
