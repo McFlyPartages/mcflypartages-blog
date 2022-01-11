@@ -17,7 +17,7 @@
 * [ ] ~~Workflow : transfert vers ftp site officiel [Deploy ftp](https://github.com/marketplace/actions/ftp-deploy)~~
 * [ ] Vérifier les cookies.
 * [X] Workflow Github pages
-* [ ] Workflow envoi vers sftp
+* [ ] Workflow envoi vers sftp en cour
 ```
 name: Deploy to Github Pages
 
