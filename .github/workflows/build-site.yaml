@@ -1,4 +1,4 @@
-name: Deploy Site
+name: Build and deploy Site branch main
 
 # run when a commit is pushed to "source" branch
 on:
@@ -33,11 +33,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: main # if your main branch is `master` use that here.
-        publish_dir: ./public
-        
-    # push the generated content into the `main` (former `master`) branch.
-    - name: Deploy on public folder
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
