@@ -36,13 +36,8 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3.8.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: main # if your main branch is `master` use that here.
+        #publish_branch: main # if your main branch is `master` use that here.
         publish_dir: ./public  
-
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        path: main
 
     - name: "Upload SFTP"
       uses: milanmk/actions-file-deployer@master
@@ -52,4 +47,5 @@ jobs:
         remote-port: ${{ secrets.SFTP_PORT }}
         remote-user: ${{ secrets.SFTP_USER }}
         remote-password: ${{ secrets.SFTP_PASSWD }}
+        local-path: "./public"
         remote-path: "/www"
