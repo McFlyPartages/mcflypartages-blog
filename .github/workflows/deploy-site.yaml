@@ -28,9 +28,12 @@ jobs:
       run: hugo --minify
 
     # push the generated content into the `main` (former `master`) branch.
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Deploy_SFTP
+      uses: milanmk/actions-file-deployer@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: main # if your main branch is `master` use that here.
-        publish_dir: ./public
+        remote-protocol: "sftp"
+        remote-host: ${{ secrets.SFTP_HOST }}
+        remote-port: ${{ secrets.SFTP_PORT }}
+        remote-user: ${{ secrets.SFTP_USER }}
+        remote-password: ${{ secrets.SFTP_PASSWD }}
+        remote-path: "/"

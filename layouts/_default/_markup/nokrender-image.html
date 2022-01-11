@@ -1,7 +1,0 @@
-<div class="col border border-light text-center bg-light p-2">
-    <picture>
-        <source srcset="{{ .Destination | safeURL }}.webp" type="image/webp">
-        <source srcset="{{ .Destination | safeURL }}.jpg" type="image/jpg">
-        <img style="max-width: 800px;" src="{{ .Destination | safeURL }}.jpg" alt="{{ .Text }}" {{ with .Title}} title="{{ . }}"{{ end }}>
-    </picture>
-</div>

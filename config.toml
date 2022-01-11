@@ -1,17 +1,19 @@
-baseURL = 'https://mcflypartages.github.io/'
+baseURL = 'https://mcflypartages.fr'
 languageCode = 'fr-fr'
 title = 'McFlyPartages'
 
 #theme = 'mcfly-theme'
 
-#description = "Mémos & Bloc-note pour débutant."
 paginate = 4
 
 enableInlineShortcodes = true
 
 [params]
-  logo = '/images/logo.webp'
-  article = '/images/articles-vierge.webp'
+  description = "Mémos & Bloc-note pour débutant"
+  keywords = "Domotique, Home Assistant, Linux, Docker, NAS, OpenMediaVault, Vie Privée"
+  logo = "/images/logo.webp"
+  article =  "/images/articles-vierge.webp"
+  contact = "contact@mcflypartages.fr"
 
   # # Background image du jumbotron
   # background = '/images/site/background-dark.jpg'
@@ -21,19 +23,22 @@ enableInlineShortcodes = true
   # # Branche par défaut
   # #gitBranch = source
   enableTOC = true
- 
+  
+  gitRepo = "https://github.com/McFlyPartages/mcflypartages.github.io"
+  # Default branch of your Git repo
+  gitBranch = "source"
 
 [author]
   name = 'McFly'
-  avatar = '/images/mcfly.webp'
+  avatar = 'images/mcfly.webp'
   description = ""
 
-#[markup]
+[markup]
 #  defaultMarkdownHandler = 'goldmark'
-#  [markup.tableOfContents]
-#    endLevel = 5
-#    ordered = false
-#    startLevel = 2
+  [markup.tableOfContents]
+    endLevel = 5
+    ordered = false
+    startLevel = 2
 #  [markup.goldmark]
 #    [markup.goldmark.renderer]
 #      hardWraps = false

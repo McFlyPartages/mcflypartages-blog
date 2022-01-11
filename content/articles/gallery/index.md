@@ -1,9 +1,8 @@
 ---
-title: "essai gallery"
+title: "example"
 date: 2021-12-19
 lastmod: 
-draft: false
-
+draft: true
 hero: /images/articles-vierge.webp
 description: Comment déplacer et laisser apparent le dock Gnome sur Debian 11 (Bullseye) et 10 (Buster).
 
@@ -37,13 +36,8 @@ kdfvmfv
 
 #### skijdflod
 
+{{< alert "Message **danger**" success >}}
 
-lskmdlokvmcsvc
-
-lskvmdloksv
-{{% alert %}}
-    blablablabalerte
-{{% /alert %}}
-
+{{< quote "Message **citation**" "artiste **anonyme**" >}}
 
 {{< gallery folder="infos" >}}

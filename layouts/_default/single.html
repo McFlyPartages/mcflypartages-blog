@@ -10,18 +10,57 @@
 </section>
 
 <section class="container">
-    <div class="row justify-content-center">
-      <div class="col-8">
+  <div class="row">
+    <article class="row justify-content-center">
+      <div class="col-10 col-xl-8">
         <div>
           {{ .Content }}
         </div>
       </div>
-      <div class="col-3">
+
+      <div class="col-xl-3 d-none d-xl-block">
         <div>
-          <h3 class="text-center">Sommaire</h3>
+          <h3 class="text-center ">Sommaire</h3>
             {{ .TableOfContents }}
         </div>
       </div>
-    </div>    
+    </article>
+  </div>
+</section>
+
+
+<section class="bg-light">
+  <div class="container">
+    <div class="row justify-content-evenly p-3">
+      <div class="col-6 text-center">
+        {{ partial "socialshare.html" . }}
+      </div>
+
+      <div class="col-6 text-center">
+        <h5>Participer</h5><br>
+        {{ if site.Params.GitRepo }}
+        {{ if site.Params.GitBranch }}
+          {{ .Scratch.Set "GitBranch" site.Params.GitBranch }}
+        {{ else }}
+          {{ .Scratch.Set "GitBranch" "main" }}
+        {{ end }}
+              <a class="text-decoration-none" href="{{ site.Params.GitRepo }}/edit/{{ .Scratch.Get "GitBranch" }}/content/{{ .File.Path }}" title="Corriger/Modifier cette page" target="_blank" rel="noopener">
+              <i class="bi bi-git"></i>
+              Modifier cette page
+            </a>
+        {{ end }}
+      </div>
+
+      <div class="col-12 border-top border-secondary pt-3" >
+          {{ partial "contact" . }}
+      </div>
+
+      <div class="row justify-content-center border-top border-secondary pt-2">
+      {{ if .Params.article_ha }}
+        {{ partial "ha-menu" . }}
+      {{ end }}
+      </div>
+    </div>
+  </div>
 </section>
 {{ end }}

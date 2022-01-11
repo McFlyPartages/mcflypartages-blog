@@ -1,9 +1,15 @@
-
-  <ul class="nav bg-dark justify-content-center ">
-    {{ range .Site.Menus.social }}
-    <li class="nav-item">
-      <a class="nav-link" aria-current="page" href="{{ .URL }}" title="{{ .Name }}">{{ .Pre }}</a>
-    </li>
-    {{ end }}
-  </ul>
- 
+<div class="row bg-dark align-items-center p-0 m-0">
+  <div class="col text-center align-self-center p-2">
+    <ul class="list-inline">
+      {{ range .Site.Menus.social }}
+      <li class="list-inline-item">
+        {{ if eq .Name "Email" }}
+        <a href="mailto:{{ .URL }}" title="{{ .URL }}">{{ .Pre }}</a>
+        {{ else }}
+        <a href="{{ .URL }}" title="{{ .URL }}">{{ .Pre }}</a>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>

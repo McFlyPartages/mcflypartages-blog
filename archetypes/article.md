@@ -3,6 +3,8 @@ title: ""
 date: {{ .Date }}
 lastmod: 
 draft: true
+socialshare: true
+article-ha: false
 
 heroimg: /images/articles-vierge.webp
 description: 
@@ -23,5 +25,9 @@ keywords:
 - tag2
 ---
 
+
+{{< alert "Message **danger**" success >}}
+
+{{< quote "Message **citation**" "artiste **anonyme**" >}}
 
 {{< gallery folder="infos" >}}

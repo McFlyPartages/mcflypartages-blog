@@ -1,3 +1,7 @@
-<div class="alert alert-primary" role="alert">
-  <i class="bi bi-circle"></i>{{.Inner | markdownify }}
+
+{{- $type := default "info" (.Get 1) -}}
+{{- $icons := dict "info" "info-circle" "success" "check-circle" "warning" "exclamation-triangle" "danger" "x-circle"}}
+{{- $icon := default "info-circle" (index $icons $type) -}}
+<div class="alert alert-{{ $type }}" role="alert">
+  <i class="bi bi-{{ $icon }}"></i> {{.Get 0 | markdownify}}
 </div>

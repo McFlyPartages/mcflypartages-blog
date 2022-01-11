@@ -1,14 +1,19 @@
 
-    <footer class="border-top">
-      <div class="container"></div>
-        <ul class="nav justify-content-end">
-          {{ range  .Site.Menus.footer }}
-          <li class="nav-item"><a href="{{ .URL }}" class="nav-link px-2 text-muted">{{ .Name }}</a></li>
-          {{ end }}
-        </ul>
-      </div>
-    </footer>
-</div>
+    
+<footer class="bg-light">
+  
+  <div class="container">
+    <ul class="nav justify-content-end">
+      {{ range  .Site.Menus.footer }}
+      <li class="nav-item"><a href="{{ .URL }}" class="nav-link px-2 text-muted">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
   {{ partial "rs-menu" . }}
+  {{ partial "copyright" . }}
+</footer>
+</div>
+  
+
 
   

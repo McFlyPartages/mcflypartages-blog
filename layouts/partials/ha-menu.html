@@ -1,26 +1,28 @@
-<div class="row justify-content-center bg-light border rounded">
+
+
+
   <div class="col-12">
     <h5 class="text-center">Besoin d'aide ?</h5>
   </div>
-  <div class="col-5 text-center border border-secondary rounded-pill m-1">
-    <p><em>Communauté Francophone HACF</em></p>
-    <ul class="nav bg-none justify-content-center">
-      {{ range .Site.Menus.aidehacf }}
-      <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="{{ .URL }}" title="{{ .Name }}">{{ .Pre }}</a>
-      </li>
-      {{ end }}
-    </ul>
 
-  </div>
-  <div class="col-5 text-center border border-secondary rounded-pill m-1">
-    <p><em>Communauté Officielle HA</em></p>
-    <ul class="nav bg-none justify-content-center ">
-      {{ range .Site.Menus.aidehaoff }}
-      <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="{{ .URL }}" title="{{ .Name }}">{{ .Pre }}</a>
+  <div class="col-3 text-center">
+    <p><em>Communauté Francophone HACF</em></p>
+    <ul class="list-inline">
+      {{ range .Site.Menus.aidehacf }}
+      <li class="list-inline-item">
+        <a href="{{ .URL }}" title="{{ .URL }}" target="_blank">{{ .Pre }}</a>
       </li>
       {{ end }}
     </ul>
   </div>
-</div>
+
+  <div class="col-3 text-center">
+    <p><em>Communauté Officielle HA</em></p>
+    <ul class="list-inline">
+      {{ range .Site.Menus.aidehaoff }}
+      <li class="list-inline-item">
+        <a href="{{ .URL }}" title="{{ .URL }}" target="_blank">{{ .Pre }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
