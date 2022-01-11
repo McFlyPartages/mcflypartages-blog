@@ -1,4 +1,4 @@
-ame: Build and deploy
+name: Build and deploy
 
 # run when a commit is pushed to "source" branch
 on:
