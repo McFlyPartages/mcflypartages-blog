@@ -45,10 +45,11 @@ jobs:
     - name: "Upload SFTP"
       uses: milanmk/actions-file-deployer@master
       with:
+        ref: main
+        path: /
         remote-protocol: "sftp"
         remote-host: ${{ secrets.SFTP_HOST }}
         remote-port: ${{ secrets.SFTP_PORT }}
         remote-user: ${{ secrets.SFTP_USER }}
         remote-password: ${{ secrets.SFTP_PASSWD }}
-        local-path: /
-        remote-path: "/"
+        remote-path: "/www"
