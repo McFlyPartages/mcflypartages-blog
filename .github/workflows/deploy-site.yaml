@@ -1,4 +1,4 @@
-name: Deploy to SFTP
+name: Deploy Site
 
 # run when a commit is pushed to "source" branch
 on:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     # checkout to the commit that has been pushed
     - uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: '0.90.0'
+        hugo-version: 'latest'
         extended: true
 
     # build website
@@ -28,7 +28,7 @@ jobs:
       run: hugo --minify
 
     # push the generated content into the `main` (former `master`) branch.
-    - name: Deploy_SFTP
+    - name: Deploy SFTP
       uses: milanmk/actions-file-deployer@master
       with:
         remote-protocol: "sftp"
@@ -37,3 +37,4 @@ jobs:
         remote-user: ${{ secrets.SFTP_USER }}
         remote-password: ${{ secrets.SFTP_PASSWD }}
         remote-path: "/www"
+        local-path: public/
