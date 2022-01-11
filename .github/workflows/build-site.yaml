@@ -39,22 +39,6 @@ jobs:
         publish_branch: main # if your main branch is `master` use that here.
         publish_dir: ./public  
 
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        path: main
-        
-#    - name: "Upload SFTP"
-#      uses: milanmk/actions-file-deployer@master
-#      with:
-#        remote-protocol: "sftp"
-#        remote-host: ${{ secrets.SFTP_HOST }}
-#        remote-port: ${{ secrets.SFTP_PORT }}
-#        remote-user: ${{ secrets.SFTP_USER }}
-#        remote-password: ${{ secrets.SFTP_PASSWD }}
-#        local-path: "./public"
-#        remote-path: "/www"
-
   upload_files:
     runs-on: ubuntu-latest
     name: Upload a builded file.
@@ -72,5 +56,5 @@ jobs:
         port: ${{ secrets.SFTP_PORT }}
         username: ${{ secrets.SFTP_USER }}
         password: ${{ secrets.SFTP_PASSWD }}
-        #localPath: '/'
+        localPath: './'
         remotePath: '/www'
