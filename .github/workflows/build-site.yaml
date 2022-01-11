@@ -38,15 +38,11 @@ jobs:
         publish_branch: main # if your main branch is `master` use that here.
         publish_dir: ./public  
 
-  deploy:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
     - name: "Upload SFTP"
       uses: milanmk/actions-file-deployer@master
       with:
         ref: main
-        path: /
+        path: ./public
         remote-protocol: "sftp"
         remote-host: ${{ secrets.SFTP_HOST }}
         remote-port: ${{ secrets.SFTP_PORT }}
