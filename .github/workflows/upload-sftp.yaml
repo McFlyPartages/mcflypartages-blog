@@ -1,0 +1,25 @@
+ame: Build and deploy
+
+# run when a commit is pushed to "source" branch
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+
+  upload_files:
+    runs-on: ubuntu-latest
+    name: Upload a builded file.
+    steps:
+        
+    - name: Upload Files
+      id: upload
+      uses: Creepios/sftp-action@v1.0.3
+      with:
+        host: ${{ secrets.SFTP_HOST }}
+        port: ${{ secrets.SFTP_PORT }}
+        username: ${{ secrets.SFTP_USER }}
+        password: ${{ secrets.SFTP_PASSWD }}
+        localPath: '/'
+        remotePath: '/www'
