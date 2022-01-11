@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout to the commit that has been pushed
-    - uses: actions/checkout@v2.4.0
+    - uses: actions/checkout@v2
       with:
         submodules: true  # Fetch Hugo themes (true OR recursive)
         fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
     
     # install Hugo
     - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.5.0
+      uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: 'latest'
         extended: true
@@ -31,15 +31,12 @@ jobs:
       run: hugo --minify
       
     # push the generated content into the `main` (former `master`) branch.
-    #- name: Deploy
-    #  uses: peaceiris/actions-gh-pages@v3.8.0
-    #  with:
-    #    github_token: ${{ secrets.GITHUB_TOKEN }}
-    #    publish_branch: main # if your main branch is `master` use that here.
-    #    publish_dir: ./public
-    
-    - name: List output files
-      run: ls public    
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3.8.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        #publish_branch: main # if your main branch is `master` use that here.
+        publish_dir: ./public  
 
     - name: "Deploy"
       uses: milanmk/actions-file-deployer@master
@@ -49,5 +46,5 @@ jobs:
         remote-port: ${{ secrets.SFTP_PORT }}
         remote-user: ${{ secrets.SFTP_USER }}
         remote-password: ${{ secrets.SFTP_PASSWD }}
-        local-path: public
+        local-path: /public
         remote-path: "/"
