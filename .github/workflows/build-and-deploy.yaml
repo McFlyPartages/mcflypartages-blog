@@ -63,4 +63,5 @@ jobs:
             SOURCE: "public/"
             REMOTE_HOST: ${{ secrets.SFTP_HOST }}
             REMOTE_USER: ${{ secrets.SFTP_USER }}
+            REMOTE_PORT: ${{ secrets.SFTP_PORT }}
             TARGET: "~/www/"
