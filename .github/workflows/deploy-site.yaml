@@ -36,4 +36,4 @@ jobs:
         remote-port: ${{ secrets.SFTP_PORT }}
         remote-user: ${{ secrets.SFTP_USER }}
         remote-password: ${{ secrets.SFTP_PASSWD }}
-        remote-path: "/"
+        remote-path: "/www"
