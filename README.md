@@ -1,8 +1,8 @@
 * [X] Redimensionner Avatar
 * [X] Convertir en WebP Avatar/Logo/article Vierge
-* [ ] Ajouter site propulsé dans footer
+* [x] Ajouter site propulsé dans footer
 * [ ] Bloquer menu (fixed top)
-* [ ] Ajouter la modification via GitHub
+* [x] Ajouter la modification via GitHub
 * [ ] Shortcode lien Forum HACF.
 * [X] Catégorie en Capitalise
 * [X] Tags en lowercase
