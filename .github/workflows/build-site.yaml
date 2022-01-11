@@ -37,24 +37,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: main # if your main branch is `master` use that here.
-        publish_dir: ./public  
-
-  upload_files:
-    runs-on: ubuntu-latest
-    name: Upload a builded file.
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        path: main
-        
-    - name: Upload Files
-      id: upload
-      uses: Creepios/sftp-action@v1.0.3
-      with:
-        host: ${{ secrets.SFTP_HOST }}
-        port: ${{ secrets.SFTP_PORT }}
-        username: ${{ secrets.SFTP_USER }}
-        password: ${{ secrets.SFTP_PASSWD }}
-        localPath: './'
-        remotePath: '/www'
+        publish_dir: ./public
