@@ -45,7 +45,6 @@ jobs:
         path: main
 
     - name: "Upload SFTP"
-      if: steps.deploy.outputs.OUTPUT == 1
       uses: milanmk/actions-file-deployer@master
       with:
         remote-protocol: "sftp"
