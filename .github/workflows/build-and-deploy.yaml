@@ -1,6 +1,6 @@
 # Get activated when pushing to the main branch
 
-name: Deploy SFTP
+name: Deploy SFTP2
 on:
   push:
     branches:
