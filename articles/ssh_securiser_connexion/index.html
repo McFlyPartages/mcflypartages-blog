@@ -1,0 +1,237 @@
+<!doctype html><html>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>McFlyPartages</title>
+<meta name=keywords content="ssh,sécurité">
+<meta name=description content="Comment sécuriser ses connexions SSH avec les clés publique/privée et la configuration du fichier sshd_config">
+<meta name=author content="McFly">
+<link href=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css rel=stylesheet integrity=sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3 crossorigin=anonymous>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css>
+<body><header class=sticky-top>
+<div class="row bg-dark align-items-center p-0 m-0">
+<div class="col text-center align-self-center p-2">
+<ul class=list-inline>
+<li class=list-inline-item>
+<a href=mailto:contact@mcflypartages.fr title=contact@mcflypartages.fr><i class="bi bi-envelope"></i></a>
+</li>
+<li class=list-inline-item>
+<a href=https://github.com/McFlyPartages/ title=https://github.com/McFlyPartages/><i class="bi bi-github"></i></a>
+</li>
+<li class=list-inline-item>
+<a href=https://www.youtube.com/c/McFlyPartages title=https://www.youtube.com/c/McFlyPartages><i class="bi bi-youtube"></i></a>
+</li>
+</ul>
+</div>
+</div>
+<nav class="navbar navbar-expand-sm border-bottom bg-light" aria-label="Third navbar example">
+<div class=container>
+<a href=https://mcflypartages.fr class="d-flex align-items-center text-dark text-decoration-none">
+<img src=/images/logo.webp width=30 height=30 class="d-inline-block align-top" alt=McFlyPartages-logo title=McFlyPartages-logo>
+<span class="fs-4 m-1">McFlyPartages</span>
+</a>
+<button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarsExample03 aria-controls=navbarsExample03 aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id=navbarsExample03>
+<ul class="nav nav-pills">
+<li class=nav-item><a href=/articles class=nav-link aria-current=page>Articles</a></li>
+<li class=nav-item><a href=/categories class=nav-link aria-current=page>Catégories</a></li>
+<li class=nav-item><a href=/a-propos class=nav-link aria-current=page>A propos</a></li>
+</ul>
+</div>
+</div>
+</nav>
+</header> <div id=content>
+<section class="bg-light py-5 mt-2 mb-5">
+<div class=container>
+<div class="row row align-items-center">
+<div class=col-8>
+<h1 class="mt-3 text-secondary">Sécuriser les connexions SSH</h1>
+</div>
+</div>
+</div>
+</section>
+<section class=container>
+<div class=row>
+<article class="row justify-content-center">
+<div class="col-10 col-xl-8">
+<div>
+<p>Quand l&rsquo;on commence à utiliser des serveurs sur internet, il est bien évident qu&rsquo;ils leur faillent une sécurité accrue pour ne pas se faire pirater.
+Nous ne sommes pas tous ingénieurs en sécurité informatique, mais il y a quand même des petites astuces que l&rsquo;on peut faire pour en améliorer leur sécurité.</p>
+<p>Nous allons voir ensemble quelques manipulations simples rendant les attaques plus compliquées.</p>
+<h2 id=les-différents-types-de-clé>Les différents types de clé.</h2>
+<p>Il existe plusieurs types de clés asymétriques, mais les plus connues sont RSA et DSA.</p>
+<ul>
+<li><a href=https://fr.wikipedia.org/wiki/Chiffrement_RSA title=https://fr.wikipedia.org/wiki/Chiffrement_RSA target=_blank rel=noreferrer>RSA</a> est le premier type de clé à être sorti et connait plusieurs versions.</li>
+<li><a href=https://fr.wikipedia.org/wiki/Digital_Signature_Algorithm title=https://fr.wikipedia.org/wiki/Digital_Signature_Algorithm target=_blank rel=noreferrer>DSA</a> est plus récent et se voulait être une alternative au RSA (qui à l&rsquo;époque était breveté). Il serait plus rapide.</li>
+</ul>
+<p>Pour ma part, j&rsquo;utilise le RSA.</p>
+<h2 id=principe-simple>Principe simple.</h2>
+<ul>
+<li>Vous générez une clé publique et une privée.</li>
+<li>Vous mettez la clé publique sur tous les serveurs que vous souhaitez contrôler</li>
+<li>Vous gardez la clé privée bien au chaud sur le ou les systèmes que vous utilisez pour vous connecter.</li>
+</ul>
+<p>Lorsque vous vous connectez les deux clés communiquent et autorise la connexion.
+Il peut vous demander de saisir la passphrase si vous en avez choisi une lors de la génération des clés, cela augmente la sécurité.</p>
+<p><strong>Quel est l&rsquo;intérêt de se connecter avec des clés s&rsquo;il faut rentrer un mot de passe ?</strong>
+<strong>La sécurité</strong>. Si vous vous faites dérober votre clé privée, la personne malveillante aura accès a toutes vos machines reliées à cette clé. (il faut connaitre les ndd ou adresse IP quand même). Avec la passphrase il y a une double sécurité tout en ayant un seul mot de passe à retenir pour toutes vos connexions.</p>
+<h2 id=générer-sa-paire-de-clés>Générer sa paire de clés.</h2>
+<p>Pour créer une paire de clés, sur votre ordinateur (Linux de préférence).</p>
+<ul>
+<li>Ouvrir un terminal,</li>
+<li>Lancer la commande <code>ssh-keygen -t rsa -b 4096</code></li>
+</ul>
+<div class="alert alert-info" role=alert>
+<i class="bi bi-info-circle"></i> Par défaut vos clés sont dans <code>~/.ssh/votre_cle</code> pour la clé privée et <code>~/.ssh/votre_cle.pub</code> pour la clé publique.
+</div>
+<div class="alert alert-info" role=alert>
+<i class="bi bi-info-circle"></i> Vous pouvez générer autant de clé que vous voulez avec la même passphrase par exemple.
+</div>
+<h2 id=envoyer-la-clé-publique-sur-le-serveur>Envoyer la clé publique sur le serveur.</h2>
+<h3 id=depuis-votre-ordinateur>Depuis votre ordinateur.</h3>
+<p><code>ssh-copy-id -i ~/.ssh/votre_cle.pub -p num_port user@ndd_ou_ip_du_serveur</code></p>
+<h3 id=modifier-les-paramètres-ssh>Modifier les paramètres SSH.</h3>
+<ul>
+<li>Connecter vous en SSH sur votre serveur <code>ssh -p num_port user@ndd_ou_ip_du_serveur</code> (<code>-p</code> est optionnel, si vous avez changé le port SSH par défaut),</li>
+<li>Activer la connexion par clé publique, dans <code>/etc/ssh/sshd_config</code> (si ce n&rsquo;est pas déjà fait), avec la commande <code>nano /etc/ssh/sshd_config</code>,</li>
+</ul>
+<pre tabindex=0><code>PubkeyAuthentication yes
+</code></pre><ul>
+<li>CTRL+X pour sauvegarder</li>
+<li><code>sudo service sshd restart</code> pour valider les nouveaux paramètres.</li>
+</ul>
+<h2 id=connexion>Connexion.</h2>
+<p>Ouvrez un autre terminal et tester la connexion</p>
+<pre tabindex=0><code>`ssh -p num_port user@ndd_ou_ip_du_serveur`
+</code></pre><p>Si vous avez mis une passphrase lors de la génération, il vous demande de la saisir.</p>
+<p>Vous voilà maintenant connecté de manière plus sécurisée.</p>
+<h2 id=allez-plus-loin>Allez plus loin.</h2>
+<p>Il est possible de sécuriser encore plus votre serveur par quelques réglages supplémentaires.</p>
+<p>### Désactiver la connexion par mot de passe.
+Pour désactiver la connexion par mot de passe, dans <code>/etc/ssh/sshd_config</code>,</p>
+<pre tabindex=0><code>PasswordAuthentication no
+</code></pre><h3 id=changer-le-port-par-défaut>Changer le port par défaut.</h3>
+<p>Le port 22 est le port par défaut sur toutes les machines lors de leurs installations, il est donc naturellement la source d&rsquo;attaque par des robots.
+Ne choisissez pas un <a href=https://fr.wikipedia.org/wiki/Liste_de_ports_logiciels title=https://fr.wikipedia.org/wiki/Liste_de_ports_logiciels target=_blank rel=noreferrer>port déjà connu</a> utiliser un port compris entre 49152-65535.</p>
+<pre tabindex=0><code>Port 52145
+</code></pre><h3 id=désactiver-laccès-ssh-avec-le-compte-root>Désactiver l&rsquo;accès SSH avec le compte <code>root</code>.</h3>
+<pre tabindex=0><code>PermitRootLogin No
+</code></pre><p>Une fois les parametres changés n&rsquo;oublier pas de sauvegarder et relancer le service <code>ssh</code>.</p>
+<h2 id=conclusion>Conclusion.</h2>
+<p>Je ne suis pas un expert en sécurité informatique, se guide est élaboré à base de plusieurs informations glanées sur le net.</p>
+<p>Je suis preneur de toutes autres modifications pouvant apporter plus de sécurité.</p>
+</div>
+</div>
+<div class="col-xl-3 d-none d-xl-block">
+<div>
+<h3 class=text-center>Sommaire</h3>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#les-différents-types-de-clé>Les différents types de clé.</a></li>
+<li><a href=#principe-simple>Principe simple.</a></li>
+<li><a href=#générer-sa-paire-de-clés>Générer sa paire de clés.</a></li>
+<li><a href=#envoyer-la-clé-publique-sur-le-serveur>Envoyer la clé publique sur le serveur.</a>
+<ul>
+<li><a href=#depuis-votre-ordinateur>Depuis votre ordinateur.</a></li>
+<li><a href=#modifier-les-paramètres-ssh>Modifier les paramètres SSH.</a></li>
+</ul>
+</li>
+<li><a href=#connexion>Connexion.</a></li>
+<li><a href=#allez-plus-loin>Allez plus loin.</a>
+<ul>
+<li><a href=#changer-le-port-par-défaut>Changer le port par défaut.</a></li>
+<li><a href=#désactiver-laccès-ssh-avec-le-compte-root>Désactiver l&rsquo;accès SSH avec le compte <code>root</code>.</a></li>
+</ul>
+</li>
+<li><a href=#conclusion>Conclusion.</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</article>
+</div>
+</section>
+<section class=bg-light>
+<div class=container>
+<div class="row justify-content-evenly p-3">
+<div class="col-6 text-center">
+<h5>Partager</h5>
+<br>
+<ul class=list-inline>
+<li class=list-inline-item>
+<a href="https://twitter.com/intent/tweet?hashtags=codingnconcepts&url=https%3a%2f%2fmcflypartages.fr%2farticles%2fssh_securiser_connexion%2f&text=S%c3%a9curiser%20les%20connexions%20SSH" target=_blank rel=noreferrer alt="Partager sur Twitter">
+<i class="bi bi-twitter"></i>
+</a>
+</li>
+<li class=list-inline-item>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmcflypartages.fr%2farticles%2fssh_securiser_connexion%2f" target=_blank rel=noreferrer alt="Partager sur Facebook">
+<i class="bi bi-facebook"></i>
+</a>
+</li>
+<li class=list-inline-item>
+<a href="https://api.whatsapp.com/send?text=S%c3%a9curiser%20les%20connexions%20SSH%2c%20par%20McFlyPartages%0aComment%20s%c3%a9curiser%20ses%20connexions%20SSH%20avec%20les%20cl%c3%a9s%20publique%2fpriv%c3%a9e%20et%20la%20configuration%20du%20fichier%20sshd_config%0a%0ahttps%3a%2f%2fmcflypartages.fr%2farticles%2fssh_securiser_connexion%2f%0a" target=_blank rel=noreferrer alt="Partager via WhatApp">
+<i class="bi bi-whatsapp"></i>
+</a>
+</li>
+<li class=list-inline-item>
+<a href="https://telegram.me/share/url?text=S%c3%a9curiser%20les%20connexions%20SSH%2c%20par%20McFlyPartages%0aComment%20s%c3%a9curiser%20ses%20connexions%20SSH%20avec%20les%20cl%c3%a9s%20publique%2fpriv%c3%a9e%20et%20la%20configuration%20du%20fichier%20sshd_config%0a%0ahttps%3a%2f%2fmcflypartages.fr%2farticles%2fssh_securiser_connexion%2f%0a&url=https%3a%2f%2fmcflypartages.fr%2farticles%2fssh_securiser_connexion%2f" target=_blank rel=noreferrer alt="Partager via Telegram">
+<i class="bi bi-telegram"></i>
+</a>
+</li>
+<li class=list-inline-item>
+<a href="mailto:?subject=McFlyPartages - S%c3%a9curiser%20les%20connexions%20SSH.&body=S%c3%a9curiser%20les%20connexions%20SSH%2c%20par%20McFlyPartages%0aComment%20s%c3%a9curiser%20ses%20connexions%20SSH%20avec%20les%20cl%c3%a9s%20publique%2fpriv%c3%a9e%20et%20la%20configuration%20du%20fichier%20sshd_config%0a%0ahttps%3a%2f%2fmcflypartages.fr%2farticles%2fssh_securiser_connexion%2f%0a" target=_blank rel=noreferrer alt="Partager par Email">
+<i class="bi bi-envelope"></i>
+</a>
+</li>
+</ul>
+</div>
+<div class="col-6 text-center">
+<h5>Participer</h5><br>
+<a class=text-decoration-none href=https://github.com/McFlyPartages/mcflypartages.github.io/edit/source/content/articles/ssh_securiser_connexion/index.md title="Corriger/Modifier cette page" target=_blank rel=noopener>
+<i class="bi bi-git"></i>
+Modifier cette page
+</a>
+</div>
+<div class="col-12 border-top border-secondary pt-3">
+<a class=text-decoration-none href="mailto:contact@mcflypartages.fr?subject=Problème avec l'article 'S%c3%a9curiser%20les%20connexions%20SSH'&body=https%3a%2f%2fmcflypartages.fr%2farticles%2fssh_securiser_connexion%2f" title="Signaler un problème par E-mail"><p class=text-center><i class="bi bi-envelope"></i> Problème avec l'article <i class="bi bi-envelope"></i></p></a>
+</div>
+<div class="row justify-content-center border-top border-secondary pt-2">
+</div>
+</div>
+</div>
+</section>
+</div>
+<footer class=bg-light>
+<div class=container>
+<ul class="nav justify-content-end">
+<li class=nav-item><a href=/a-propos class="nav-link px-2 text-muted">A propos</a></li>
+<li class=nav-item><a href=/protection-des-donnees class="nav-link px-2 text-muted">Protection des données</a></li>
+</ul>
+</div>
+<div class="row bg-dark align-items-center p-0 m-0">
+<div class="col text-center align-self-center p-2">
+<ul class=list-inline>
+<li class=list-inline-item>
+<a href=mailto:contact@mcflypartages.fr title=contact@mcflypartages.fr><i class="bi bi-envelope"></i></a>
+</li>
+<li class=list-inline-item>
+<a href=https://github.com/McFlyPartages/ title=https://github.com/McFlyPartages/><i class="bi bi-github"></i></a>
+</li>
+<li class=list-inline-item>
+<a href=https://www.youtube.com/c/McFlyPartages title=https://www.youtube.com/c/McFlyPartages><i class="bi bi-youtube"></i></a>
+</li>
+</ul>
+</div>
+</div>
+<div class=justify-content-center>
+</div>
+<div class="row bg-dark align-items-center p-0 m-0">
+<div class="col text-center align-self-center p-2">
+<p class=text-light>Site web réalisé avec <a href=https://gohugo.io/ alt="Hugo LE générateur de site statique." target=_blank rel=noreferrer><img alt=hugo-logo src=/images/hugo-logo.svg width=auto height=15px></a>. Contenus sous licence <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/ alt="Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International" target=_blank><img alt="Licence Creative Commons 4.0 by-nc-sa" src=https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png></a>
+</div>
+</div>
+</footer>
+</div>
+</body>
+</html>
