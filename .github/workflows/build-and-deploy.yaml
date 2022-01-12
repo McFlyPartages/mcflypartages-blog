@@ -48,4 +48,4 @@ jobs:
         port: ${{ secrets.SFTP_PORT }}
         ssh_private_key: ${{ secrets.SFTP_SSH_KEY }} 
         local_path: 'public/'
-        remote_path: '/www/'
+        remote_path: '/www'
