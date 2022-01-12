@@ -53,8 +53,6 @@ jobs:
       - name: Build
         run: hugo --minify
         
-        # Deployment to server. Secrets need to be entered via settings -> secrets in the repo. Change parameter accordingly.
-        
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.1.6
         env:
