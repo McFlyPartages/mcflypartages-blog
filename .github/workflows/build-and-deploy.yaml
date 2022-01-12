@@ -29,23 +29,23 @@ jobs:
 
     # push the generated content into the `main` (former `master`) branch.
     # https://github.com/marketplace/actions/sftp-ssh-action
-    #- name: Upload Files
-    #  uses: Creepios/sftp-action@v1.0.3
-    #  with:
-    #    host: ${{ secrets.SFTP_HOST }}
-    #    port: ${{ secrets.SFTP_PORT }}
-    #    username: ${{ secrets.SFTP_USER }}
-    #    privateKey: ${{ secrets.SFTP_PASSWD }}
-    #    localPath: 'public/'
-    #    remotePath: '/www/'
+    - name: Upload Files
+      uses: Creepios/sftp-action@v1.0.3
+      with:
+        host: ${{ secrets.SFTP_HOST }}
+        port: ${{ secrets.SFTP_PORT }}
+        username: ${{ secrets.SFTP_USER }}
+        privateKey: ${{ secrets.SFTP_PASSWD }}
+        localPath: 'public/'
+        remotePath: '/www/'
 
     # https://github.com/marketplace/actions/sftp-deploy
-    - name: Upload file
-      uses: wlixcc/SFTP-Deploy-Action@v1.0
-      with:
-        server: ${{ secrets.SFTP_HOST }}
-        username: ${{ secrets.SFTP_USER }}
-        port: ${{ secrets.SFTP_PORT }}
-        ssh_private_key: ${{ secrets.SFTP_SSH_KEY }} 
-        local_path: 'public/'
-        remote_path: '/www'
+    #- name: Upload file
+    #  uses: wlixcc/SFTP-Deploy-Action@v1.0
+    #  with:
+    #    server: ${{ secrets.SFTP_HOST }}
+    #    username: ${{ secrets.SFTP_USER }}
+    #    port: ${{ secrets.SFTP_PORT }}
+    #    ssh_private_key: ${{ secrets.SFTP_SSH_KEY }} 
+    #    local_path: 'public/'
+    #    remote_path: '/www'
