@@ -4,10 +4,10 @@ date: 2022-01-09
 lastmod: 
 draft: false
 socialshare: true
-article_ha: true
+article_ha: false
 
 hero: /images/articles-vierge.webp
-description: Comment se connecter, à un serveur,en SSH depuis Linux.
+description: "Comment se connecter, à un serveur,en SSH depuis Linux."
 
 categories:
 - linux
@@ -27,7 +27,7 @@ Dès que l'on commence à travailler avec un serveur ou en ligne de commande, la
 
 Voici comment se connecter simplement en SSH avec un utilisateur et un mot de passe.
 
-Nous verrons dans un prochain article comment augmenter la sécurité de cette connexion.
+Nous verrons dans un prochain article comment [augmenter la sécurité de cette connexion](../ssh_securiser_connexion/).
 
 ## Connexion SSH depuis Linux
 Dans un terminal, connectez-vous en SSH via la commande `ssh root@ip-de-votre-serveur`

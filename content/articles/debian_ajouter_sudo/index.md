@@ -4,9 +4,10 @@ date: 2021-12-19
 lastmod: 2022-01-09
 draft: false
 socialshare: true
+article-ha: false
 
 hero: /images/articles-vierge.webp
-description: Comment retrouver la commande sudo sur Debian 10 Buster et 11 Bullseye.
+description: "Comment retrouver la commande sudo sur Debian 10 Buster et 11 Bullseye."
 
 categories:
 - linux
@@ -24,6 +25,7 @@ keywords:
 - debian
 - bullseye
 - buster
+
 ---
 Comme vous avez dû le remarquer depuis la version 10 de Debian nommée Buster, une commande avec `sudo` renvoie que `sudo` est introuvable. Et oui depuis cette version, Debian n'installe plus `sudo` par défaut. 
 

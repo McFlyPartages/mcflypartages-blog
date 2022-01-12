@@ -25,9 +25,6 @@ keywords:
 - tag2
 ---
 
-
 {{< alert "Message **danger**" success >}}
-
 {{< quote "Message **citation**" "artiste **anonyme**" >}}
-
 {{< gallery folder="infos" >}}

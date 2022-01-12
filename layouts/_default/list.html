@@ -1,20 +1,20 @@
 {{ define "main" }}
 <div class="container">
-    <h1 class="text-capitalize text-center">Catégorie {{ .Title }}</h1>
 
-    <p class="text-center fs-italic">Voici tous les articles de la catégorie {{ .Title }}</p>
+    <h1 class="text-capitalize text-center p-2">{{ .Title }}</h1>
+
     <div class="row">
-        <div class="col-8">
-            {{ range .Pages }}
-              {{ partial "liste-articles" . }}
-            {{ end }}  
+
+        <div class="col-12">
+          {{ range .Paginator.Pages }}
+            {{ partial "liste-articles" . }}
+          {{ end }}  
         </div>
-    
-        <div class="col-3">
-          
-            {{ partial "barre-laterale" . }}
-           
+
+        <div>
+          {{ partial "pagination" . }}
         </div>
+
       </div>
     </div>
 </div>

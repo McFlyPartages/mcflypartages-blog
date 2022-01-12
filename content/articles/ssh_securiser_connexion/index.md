@@ -23,6 +23,7 @@ tags:
 keywords:
 - ssh
 - sécurité
+
 ---
 Quand l'on commence à utiliser des serveurs sur internet, il est bien évident qu'ils leur faillent une sécurité accrue pour ne pas se faire pirater.
 Nous ne sommes pas tous ingénieurs en sécurité informatique, mais il y a quand même des petites astuces que l'on peut faire pour en améliorer leur sécurité.

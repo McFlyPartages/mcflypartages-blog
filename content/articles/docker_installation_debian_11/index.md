@@ -1,13 +1,14 @@
 ---
-title: "Comment installer Docker et Docker Compose sur un Raspberry Pi."
+title: "Comment installer Docker et Docker Compose sur Debian 11."
 date: 2021-06-30
 lastmod: 
 draft: true
 socialshare: true
+article-ha: false
 
-hero: images/articles-vierge.png
-#description: 
-#keywords:
+hero: /images/articles-vierge.webp
+description: "Comment installer Docker et Docker Compose sur Debian 11."
+
 
 categories:
 - raspberry
@@ -18,6 +19,7 @@ series:
   
 tags:
 -  raspberry OS
+
 ---
 
 Je pars du principe que vous avez déja installé Raspberry Pi OS sur votre Raspberry est changé votre mot de passe.

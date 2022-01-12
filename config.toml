@@ -4,7 +4,7 @@ title = 'McFlyPartages'
 
 #theme = 'mcfly-theme'
 
-paginate = 4
+paginate = 2
 
 enableInlineShortcodes = true
 
