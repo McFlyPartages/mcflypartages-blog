@@ -43,8 +43,9 @@ jobs:
     - name: Upload file
       uses: wlixcc/SFTP-Deploy-Action@v1.0
       with:
-        username: ${{ secrets.SFTP_USER }}
         server: ${{ secrets.SFTP_HOST }}
+        username: ${{ secrets.SFTP_USER }}
+        port: ${{ secrets.SFTP_PORT }}
         ssh_private_key: ${{ secrets.SFTP_SSH_KEY }} 
         local_path: 'public/'
         remote_path: '/www/'
