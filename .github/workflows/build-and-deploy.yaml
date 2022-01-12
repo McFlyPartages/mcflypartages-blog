@@ -1,65 +1,36 @@
-# Get activated when pushing to the main branch
+name: Deploy to Github Pages
 
-name: Deploy SFTP2
+# run when a commit is pushed to "source" branch
 on:
   push:
     branches:
-      - source  # Set a branch to deploy
+    - source
 
 jobs:
   deploy:
-    name: deployment to server
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+    # checkout to the commit that has been pushed
+    - uses: actions/checkout@v2
+      with:
+        submodules: true  # Fetch Hugo themes (true OR recursive)
+        fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+    
+    # install Hugo
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.77.0'
+        extended: true
 
-      # Node for any Compression
-      - name: Setup Node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '12.x'
-      
-      - name: Install Dependencies
-        run: npm install
-        
-        #Setup of Hugo and Caching of files
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-          extended: true
+    # build website
+    - name: Build
+      run: hugo --minify
 
-      - name: Clean public directory
-        run: rm -rf public
-      
-      
-      - name: Cache Hugo Files
-        uses: actions/cache@v2
-        with:
-          path: /tmp/hugo_cache
-          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-hugomod-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Build
-        run: hugo --minify
-        
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v2.1.6
-        env:
-            SSH_PRIVATE_KEY: ${{ secrets.SFTP_SSH_KEY }}
-            ARGS: "-avz --delete"
-            SOURCE: "public/"
-            REMOTE_HOST: ${{ secrets.SFTP_HOST }}
-            REMOTE_USER: ${{ secrets.SFTP_USER }}
-            REMOTE_PORT: ${{ secrets.SFTP_PORT }}
-            TARGET: "/www/"
+    # push the generated content into the `main` (former `master`) branch.
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: main # if your main branch is `master` use that here.
+        publish_dir: ./public
