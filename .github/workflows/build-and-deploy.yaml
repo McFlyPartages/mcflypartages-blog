@@ -35,7 +35,7 @@ jobs:
         host: ${{ secrets.SFTP_HOST }}
         port: ${{ secrets.SFTP_PORT }}
         username: ${{ secrets.SFTP_USER }}
-        privateKey: ${{ secrets.SFTP_PASSWD }}
+        password: ${{ secrets.SFTP_PASSWD }}
         localPath: 'public/'
         remotePath: '/www/'
 
