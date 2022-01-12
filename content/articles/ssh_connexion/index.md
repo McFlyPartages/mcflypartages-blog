@@ -13,7 +13,8 @@ categories:
 - linux
 
 series:
-- Debian 11
+- debian 11
+- ssh
   
 tags:
 - ssh
