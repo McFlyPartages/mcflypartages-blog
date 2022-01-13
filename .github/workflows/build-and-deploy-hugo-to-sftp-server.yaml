@@ -26,25 +26,14 @@ jobs:
     # build website
     - name: Build
       run: hugo --minify
-
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: main # if your main branch is `master` use that here.
-        publish_dir: ./public
-        
-    # push the generated content into the `main` (former `master`) branch.
-    # https://github.com/marketplace/actions/sftp-ssh-action
-    #- name: Upload Files
-    #  uses: Creepios/sftp-action@v1.0.3
+      
+    # Permet le deployement sur la branche main pour GitHub Page (plus utilisé)
+    #- name: Deploy
+    #  uses: peaceiris/actions-gh-pages@v3
     #  with:
-    #    host: ${{ secrets.SFTP_HOST }}
-    #    port: ${{ secrets.SFTP_PORT }}
-    #    username: ${{ secrets.SFTP_USER }}
-    #    password: ${{ secrets.SFTP_PASSWD }}
-    #    localPath: 'public/'
-    #    remotePath: '/www/'
+    #    github_token: ${{ secrets.GITHUB_TOKEN }}
+    #    publish_branch: main # if your main branch is `master` use that here.
+    #    publish_dir: ./public
 
     # https://github.com/marketplace/actions/sftp-deploy
     - name: Upload file
