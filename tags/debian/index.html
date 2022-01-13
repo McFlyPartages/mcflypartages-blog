@@ -49,17 +49,17 @@
 <h1 class="text-capitalize text-center p-2">debian</h1>
 <div class=row>
 <div class=col-12>
-<a href=https://mcflypartages.fr/articles/debian_ajouter_sudo/></a>
+<a href=https://mcflypartages.fr/articles/debian_perte_bureau/></a>
 <div class="card p-1 mb-2">
 <div class=card-header>
-<h4 class=card-title>Retrouver le sudo dans Debian 10 et 11</h4>
+<h4 class=card-title>Retrouver le bureau disparu après changement de fond d'écran</h4>
 </div>
 <div class=card-body>
 <div class=row>
 <div class=col>
 <div class=row>
 <div class=col-6>
-<h6 class="card-subtitle mb-2 text-muted text-center">Mis à Jour : 9 Janvier 2022</h6>
+<h6 class="card-subtitle mb-2 text-muted text-center">Mis à Jour : 13 Janvier 2022</h6>
 </div>
 <div class=col-6>
 <h6 class="card-subtitle mb-2 text-muted text-center">Temps de lecture 1 minute </h6>
@@ -72,25 +72,70 @@
 </div>
 <div class=col-6>
 <h6 class="card-subtitle mb-2 text-muted text-center text-lowercase text-truncate">
-<a href=/tags/bullseye>#bullseye</a>,
-<a href=/tags/buster>#buster</a>,
-<a href=/tags/debian>#debian</a></h6>
+<a href=/tags/debian>#debian</a>,
+<a href=/tags/rescue-mode>#rescue mode</a></h6>
 </div>
 </div>
-<p class=card-text>Comme vous avez dû le remarquer depuis la version 10 de Debian nommée Buster, une commande avec sudo renvoie que sudo est introuvable. Et oui depuis cette version, Debian n&rsquo;installe plus sudo par défaut.
-Voici la méthode pour retrouver cette commande.
-Installation. Dans un terminal, connectez-vous en SSH
-Passer en root (si vous êtes connecté via un utilisateur) puis procéder à l&rsquo;installation avec les commandes suivantes :
-su root apt install sudo -y</p>
+<p class=card-text>Retrouver le bureau disparu après changement de fond d&rsquo;écran
+La dernière fois en voulant changer le fond d&rsquo;écran d&rsquo;un ordinateur sous Debian 11, j&rsquo;ai complètement perdu l&rsquo;accès au Bureau. Si mes souvenirs sont bons, j&rsquo;essayais de me loguer, mais rien ne se lançait.
+Ne désirant pas tout réinstaller, voici la manipulation effectuée.
+Redémarrer Debian Sélectionner Advanced, Puis rescue mode, Rentrer le mot de passe root, Attention le verrouillage numérique est désactivé par défaut Nous allons éditer le fichier de configuration de l&rsquo;utilisateur dans lequel est stocké le fond d&rsquo;écran utilisé.</p>
 </div>
 </div>
 </div>
 <div class="card-footer text-muted text-center pl-5">
-<a href=https://mcflypartages.fr/articles/debian_ajouter_sudo/ class="btn btn-primary">Lire l'article</a>
+<a href=https://mcflypartages.fr/articles/debian_perte_bureau/ class="btn btn-primary">Lire l'article</a>
+</div>
+</div>
+<a href=https://mcflypartages.fr/articles/docker_installation_debian_11/></a>
+<div class="card p-1 mb-2">
+<div class=card-header>
+<h4 class=card-title>Comment installer Docker et Docker Compose sur Debian 11.</h4>
+</div>
+<div class=card-body>
+<div class=row>
+<div class=col>
+<div class=row>
+<div class=col-6>
+<h6 class="card-subtitle mb-2 text-muted text-center">Mis à Jour : 3 Janvier 2022</h6>
+</div>
+<div class=col-6>
+<h6 class="card-subtitle mb-2 text-muted text-center">Temps de lecture 3 minutes </h6>
+</div>
+</div>
+<div class="row border-bottom">
+<div class=col-6>
+<h6 class="card-subtitle mb-2 text-muted text-center text-capitalize text-trucate">
+<a href=/categories/linux>linux</a>,
+<a href=/categories/docker>docker</a></h6>
+</div>
+<div class=col-6>
+<h6 class="card-subtitle mb-2 text-muted text-center text-lowercase text-truncate">
+<a href=/tags/docker>#docker</a>,
+<a href=/tags/docker-compose>#docker compose</a>,
+<a href=/tags/debian>#debian</a></h6>
+</div>
+</div>
+<p class=card-text>Je ne vais pas m&rsquo;étendre sur le sujet, mais pour faire simple, il permet d&rsquo;installer et de tester des applications sans devoir chambouler ou jouer sur la configuration brute du système.
+Voici deux citations de Wikipédia. Docker est une plateforme permettant de lancer certaines applications dans des conteneurs logiciels.
+Wikipédia
+Docker est un outil qui peut empaqueter une application et ses dépendances dans un conteneur isolé, qui pourra être exécuté sur n&rsquo;importe quel serveur.</p>
+</div>
+</div>
+</div>
+<div class="card-footer text-muted text-center pl-5">
+<a href=https://mcflypartages.fr/articles/docker_installation_debian_11/ class="btn btn-primary">Lire l'article</a>
 </div>
 </div>
 </div>
 <div>
+<nav>
+<ul class="pagination justify-content-center">
+<li class="page-item active"><a href=/tags/debian/ class=page-link>1</a></li>
+<li class=page-item><a href=/tags/debian/page/2/ class=page-link>2</a></li>
+<li class=page-item><a href=/tags/debian/page/2/ rel=next class=page-link>Next ›</a></li>
+</ul>
+</nav>
 </div>
 </div>
 </div>

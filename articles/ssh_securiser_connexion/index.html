@@ -91,9 +91,45 @@ Il peut vous demander de saisir la passphrase si vous en avez choisi une lors de
 <div class="alert alert-info" role=alert>
 <i class="bi bi-info-circle"></i> Vous pouvez générer autant de clé que vous voulez avec la même passphrase par exemple.
 </div>
+<p>
+<div class="row text-center">
+<figure class="col border border-light text-center bg-light p-2">
+<a href=/articles/ssh_securiser_connexion/img/creation_cle_ssh.png>
+<picture class=justify-align-center>
+<source sizes=" (min-width: 576px) 55vw ,(min-width: 768px) 80vw , (min-width: 1200px) 40vw , (min-width: 1400px) 30vw ,80vw" srcset="/articles/ssh_securiser_connexion/img/creation_cle_ssh_hub9d010b995e8f5dc206e80a0bdaccea2_64077_320x0_resize_q100_h1_box_3.webp 320w, /articles/ssh_securiser_connexion/img/creation_cle_ssh_hub9d010b995e8f5dc206e80a0bdaccea2_64077_450x0_resize_q100_h1_box_3.webp 450w, /articles/ssh_securiser_connexion/img/creation_cle_ssh_hub9d010b995e8f5dc206e80a0bdaccea2_64077_600x0_resize_q100_h1_box_3.webp 600w, /articles/ssh_securiser_connexion/img/creation_cle_ssh_hub9d010b995e8f5dc206e80a0bdaccea2_64077_750x0_resize_q100_h1_box_3.webp 750w" type=image/webp>
+<img src="/articles/ssh_securiser_connexion/img/creation_cle_ssh_hub9d010b995e8f5dc206e80a0bdaccea2_64077_320x0_resize_q100_bgffffff_box_3.jpg, /articles/ssh_securiser_connexion/img/creation_cle_ssh_hub9d010b995e8f5dc206e80a0bdaccea2_64077_450x0_resize_q100_bgffffff_box_3.jpg, /articles/ssh_securiser_connexion/img/creation_cle_ssh_hub9d010b995e8f5dc206e80a0bdaccea2_64077_600x0_resize_q100_bgffffff_box_3.jpg, /articles/ssh_securiser_connexion/img/creation_cle_ssh_hub9d010b995e8f5dc206e80a0bdaccea2_64077_750x0_resize_q100_bgffffff_box_3.jpg" type=image/jpg alt="Crétion de la clé SSH" style=max-width:700px>
+</picture>
+</a>
+</figure>
+</div></p>
+<p>Aprés avoir affiché les dossiers cachés, regarder dans le dossier <code>.ssh</code>.
+<div class="row text-center">
+<figure class="col border border-light text-center bg-light p-2">
+<a href=/articles/ssh_securiser_connexion/img/dossier_ssh.png>
+<picture class=justify-align-center>
+<source sizes=" (min-width: 576px) 55vw ,(min-width: 768px) 80vw , (min-width: 1200px) 40vw , (min-width: 1400px) 30vw ,80vw" srcset="/articles/ssh_securiser_connexion/img/dossier_ssh_hu48b47b481e32f60deae10de63ee4f4f3_37750_320x0_resize_q100_h1_box_3.webp 320w, /articles/ssh_securiser_connexion/img/dossier_ssh_hu48b47b481e32f60deae10de63ee4f4f3_37750_450x0_resize_q100_h1_box_3.webp 450w, /articles/ssh_securiser_connexion/img/dossier_ssh_hu48b47b481e32f60deae10de63ee4f4f3_37750_600x0_resize_q100_h1_box_3.webp 600w, /articles/ssh_securiser_connexion/img/dossier_ssh_hu48b47b481e32f60deae10de63ee4f4f3_37750_750x0_resize_q100_h1_box_3.webp 750w" type=image/webp>
+<img src="/articles/ssh_securiser_connexion/img/dossier_ssh_hu48b47b481e32f60deae10de63ee4f4f3_37750_320x0_resize_q100_bgffffff_box_3.jpg, /articles/ssh_securiser_connexion/img/dossier_ssh_hu48b47b481e32f60deae10de63ee4f4f3_37750_450x0_resize_q100_bgffffff_box_3.jpg, /articles/ssh_securiser_connexion/img/dossier_ssh_hu48b47b481e32f60deae10de63ee4f4f3_37750_600x0_resize_q100_bgffffff_box_3.jpg, /articles/ssh_securiser_connexion/img/dossier_ssh_hu48b47b481e32f60deae10de63ee4f4f3_37750_750x0_resize_q100_bgffffff_box_3.jpg" type=image/jpg alt="Contenu du dossier SSH" style=max-width:700px>
+</picture>
+</a>
+</figure>
+</div></p>
 <h2 id=envoyer-la-clé-publique-sur-le-serveur>Envoyer la clé publique sur le serveur.</h2>
 <h3 id=depuis-votre-ordinateur>Depuis votre ordinateur.</h3>
 <p><code>ssh-copy-id -i ~/.ssh/votre_cle.pub -p num_port user@ndd_ou_ip_du_serveur</code></p>
+<div class="alert alert-warning" role=alert>
+<i class="bi bi-exclamation-triangle"></i> Si vous vous êtes déjjà connecté au serveur via SSH, il risque de vous mettre un avertissement, il suffit de taper la commande qu&rsquo;il vous donne <code>ssh-keygen -f /home/anthony/.ssh/known_hosts -R XXX.XXX.XXX.XXX</code>
+</div>
+<p>
+<div class="row text-center">
+<figure class="col border border-light text-center bg-light p-2">
+<a href=/articles/ssh_securiser_connexion/img/envoi_cle-ssh_vers_serveur.png>
+<picture class=justify-align-center>
+<source sizes=" (min-width: 576px) 55vw ,(min-width: 768px) 80vw , (min-width: 1200px) 40vw , (min-width: 1400px) 30vw ,80vw" srcset="/articles/ssh_securiser_connexion/img/envoi_cle-ssh_vers_serveur_hu19b4f2900c1ccae2de47dd9e01fcf7a1_94158_320x0_resize_q100_h1_box_3.webp 320w, /articles/ssh_securiser_connexion/img/envoi_cle-ssh_vers_serveur_hu19b4f2900c1ccae2de47dd9e01fcf7a1_94158_450x0_resize_q100_h1_box_3.webp 450w, /articles/ssh_securiser_connexion/img/envoi_cle-ssh_vers_serveur_hu19b4f2900c1ccae2de47dd9e01fcf7a1_94158_600x0_resize_q100_h1_box_3.webp 600w, /articles/ssh_securiser_connexion/img/envoi_cle-ssh_vers_serveur_hu19b4f2900c1ccae2de47dd9e01fcf7a1_94158_750x0_resize_q100_h1_box_3.webp 750w" type=image/webp>
+<img src="/articles/ssh_securiser_connexion/img/envoi_cle-ssh_vers_serveur_hu19b4f2900c1ccae2de47dd9e01fcf7a1_94158_320x0_resize_q100_bgffffff_box_3.jpg, /articles/ssh_securiser_connexion/img/envoi_cle-ssh_vers_serveur_hu19b4f2900c1ccae2de47dd9e01fcf7a1_94158_450x0_resize_q100_bgffffff_box_3.jpg, /articles/ssh_securiser_connexion/img/envoi_cle-ssh_vers_serveur_hu19b4f2900c1ccae2de47dd9e01fcf7a1_94158_600x0_resize_q100_bgffffff_box_3.jpg, /articles/ssh_securiser_connexion/img/envoi_cle-ssh_vers_serveur_hu19b4f2900c1ccae2de47dd9e01fcf7a1_94158_750x0_resize_q100_bgffffff_box_3.jpg" type=image/jpg alt="Envoi de la clé SSH sur le serveur" style=max-width:700px>
+</picture>
+</a>
+</figure>
+</div></p>
 <h3 id=modifier-les-paramètres-ssh>Modifier les paramètres SSH.</h3>
 <ul>
 <li>Connecter vous en SSH sur votre serveur <code>ssh -p num_port user@ndd_ou_ip_du_serveur</code> (<code>-p</code> est optionnel, si vous avez changé le port SSH par défaut),</li>

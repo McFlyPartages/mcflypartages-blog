@@ -1,0 +1,301 @@
+<!doctype html><html>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>McFlyPartages</title>
+<meta name=keywords content="docker-ce,docker-compose,debian 11,serveur">
+<meta name=description content="Comment installer Docker et Docker Compose sur Debian 11.">
+<meta name=author content="McFly">
+<link href=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css rel=stylesheet integrity=sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3 crossorigin=anonymous>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js integrity=sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p crossorigin=anonymous></script>
+<script>var _paq=window._paq=window._paq||[];_paq.push(["setDoNotTrack",!0]),_paq.push(["disableCookies"]),_paq.push(['trackPageView']),_paq.push(['enableLinkTracking']),function(){var b="//ynh.mcflypartages.fr/matomo/",c,a,d;_paq.push(['setTrackerUrl',b+'matomo.php']),_paq.push(['setSiteId','2']),c=document,a=c.createElement('script'),d=c.getElementsByTagName('script')[0],a.async=!0,a.src=b+'matomo.js',d.parentNode.insertBefore(a,d)}()</script>
+<noscript><p><img src="//ynh.mcflypartages.fr/matomo/matomo.php?idsite=2&rec=1" style=border:0 alt></p></noscript>
+<body><header class=sticky-top>
+<div class="row bg-dark align-items-center p-0 m-0">
+<div class="col text-center align-self-center p-2">
+<ul class=list-inline>
+<li class=list-inline-item>
+<a href=mailto:contact@mcflypartages.fr title=contact@mcflypartages.fr><i class="bi bi-envelope"></i></a>
+</li>
+<li class=list-inline-item>
+<a href=https://github.com/McFlyPartages/ title=https://github.com/McFlyPartages/><i class="bi bi-github"></i></a>
+</li>
+<li class=list-inline-item>
+<a href=https://www.youtube.com/c/McFlyPartages title=https://www.youtube.com/c/McFlyPartages><i class="bi bi-youtube"></i></a>
+</li>
+</ul>
+</div>
+</div>
+<nav class="navbar navbar-expand-sm border-bottom bg-light" aria-label="Third navbar example">
+<div class=container>
+<a href=https://mcflypartages.fr class="d-flex align-items-center text-dark text-decoration-none">
+<img src=/images/logo.webp width=30 height=30 class="d-inline-block align-top" alt=McFlyPartages-logo title=McFlyPartages-logo>
+<span class="fs-4 m-1">McFlyPartages</span>
+</a>
+<button class=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#navbarsExample03 aria-controls=navbarsExample03 aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id=navbarsExample03>
+<ul class="nav nav-pills">
+<li class=nav-item><a href=/articles class=nav-link aria-current=page>Articles</a></li>
+<li class=nav-item><a href=/categories class=nav-link aria-current=page>Catégories</a></li>
+<li class=nav-item><a href=/a-propos class=nav-link aria-current=page>A propos</a></li>
+</ul>
+</div>
+</div>
+</nav>
+</header> <div id=content>
+<section class="bg-light py-5 mt-2 mb-5">
+<div class=container>
+<div class="row row align-items-center">
+<div class=col-8>
+<h1 class="mt-3 text-secondary">Comment installer Docker et Docker Compose sur Debian 11.</h1>
+</div>
+</div>
+</div>
+</section>
+<section class=container>
+<div class=row>
+<article class="row justify-content-center">
+<div class="col-10 col-xl-8">
+<div>
+<p>Je ne vais pas m&rsquo;étendre sur le sujet, mais pour faire simple, il permet d&rsquo;installer et de tester des applications sans devoir chambouler ou jouer sur la configuration brute du système.</p>
+<p>Voici deux citations de Wikipédia.
+<figure class="alert alert-secondary" role=alert>
+<blockquote class=blockquote>
+<p>Docker est une plateforme permettant de lancer certaines applications dans des conteneurs logiciels.</p>
+</blockquote>
+<figcaption class=blockquote-footer>
+<cite title="Source Title"><a href=https://fr.wikipedia.org/wiki/Docker_(logiciel)>Wikipédia</a></cite>
+</figcaption>
+</figure></p>
+<figure class="alert alert-secondary" role=alert>
+<blockquote class=blockquote>
+<p>Docker est un outil qui peut empaqueter une application et ses dépendances dans un conteneur isolé, qui pourra être exécuté sur n&rsquo;importe quel serveur.</p>
+</blockquote>
+<figcaption class=blockquote-footer>
+<cite title="Source Title"><a href=https://fr.wikipedia.org/wiki/Docker_(logiciel)>Wikipédia</a></cite>
+</figcaption>
+</figure>
+<p>Il existe deux versions de Docker :</p>
+<ul>
+<li>Docker CE pour Community Edition (celle qui nous intéresse),</li>
+<li>Docker EE pour Entreprise Edition.</li>
+</ul>
+<p>Fin du blabla</p>
+<h2 id=installation-de-docker>Installation de Docker.</h2>
+<p>Je pars du principe que vous avez déjà Debian 11 d&rsquo;installé sur votre machine et que vous savez vous <a href=../ssh_connexion/ title=../ssh_connexion/ target=_blank rel=noreferrer>connectez en SSH</a> à serveur.</p>
+<div class="alert alert-info" role=alert>
+<i class="bi bi-info-circle"></i> Si vous avez déjà installé Docker il va falloir supprimer cette installation via la commande suivante <code>sudo apt-get remove docker docker-engine docker.io containerd runc</code>
+</div>
+<p>On commence par mettre à jour les paquets du système et le système lui-même.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt update <span style=color:#f92672>&amp;&amp;</span> sudo apt upgrade
+</code></pre></div><p>On installe les dépendances.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt install <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    ca-certificates <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    curl <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    gnupg <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    lsb-release
+</code></pre></div><p>Ajout de la clé GPG Docker</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+</code></pre></div><p>Cette ligne suivante permet de choisir la version que l&rsquo;on souhaite installer, nous prenons la <code>stable</code> par défaut.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>echo <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span> <span style=color:#e6db74>&#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+</span><span style=color:#e6db74> </span><span style=color:#66d9ef>$(</span>lsb_release -cs<span style=color:#66d9ef>)</span><span style=color:#e6db74> stable&#34;</span> | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</code></pre></div><p>Une dernière mise à jour puis l&rsquo;installation de Docker.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+</code></pre></div><h3 id=ajout-dun-utilisateur>Ajout d&rsquo;un utilisateur.</h3>
+<p>Ajouter son utilisateur (ou un créé spécialement) au groupe <code>docker</code> puis tester votre version de Docker.
+Cela permet d&rsquo;éviter l&rsquo;utilisation de l&rsquo;user <code>root</code>, donc de sécuriser les différentes manipulations.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo usermod -aG docker votre_user
+docker -v
+</code></pre></div><p>
+<div class="row text-center">
+<figure class="col border border-light text-center bg-light p-2">
+<a href=/articles/docker_installation_debian_11/img/docker_ajout_user_test_version.png>
+<picture class=justify-align-center>
+<source sizes=" (min-width: 576px) 55vw ,(min-width: 768px) 80vw , (min-width: 1200px) 40vw , (min-width: 1400px) 30vw ,80vw" srcset="/articles/docker_installation_debian_11/img/docker_ajout_user_test_version_hu4e60f3ec390bb8547463b9987cc69227_23669_320x0_resize_q100_h1_box_3.webp 320w, /articles/docker_installation_debian_11/img/docker_ajout_user_test_version_hu4e60f3ec390bb8547463b9987cc69227_23669_450x0_resize_q100_h1_box_3.webp 450w, /articles/docker_installation_debian_11/img/docker_ajout_user_test_version_hu4e60f3ec390bb8547463b9987cc69227_23669_600x0_resize_q100_h1_box_3.webp 600w, /articles/docker_installation_debian_11/img/docker_ajout_user_test_version_hu4e60f3ec390bb8547463b9987cc69227_23669_750x0_resize_q100_h1_box_3.webp 750w" type=image/webp>
+<img src="/articles/docker_installation_debian_11/img/docker_ajout_user_test_version_hu4e60f3ec390bb8547463b9987cc69227_23669_320x0_resize_q100_bgffffff_box_3.jpg, /articles/docker_installation_debian_11/img/docker_ajout_user_test_version_hu4e60f3ec390bb8547463b9987cc69227_23669_450x0_resize_q100_bgffffff_box_3.jpg, /articles/docker_installation_debian_11/img/docker_ajout_user_test_version_hu4e60f3ec390bb8547463b9987cc69227_23669_600x0_resize_q100_bgffffff_box_3.jpg, /articles/docker_installation_debian_11/img/docker_ajout_user_test_version_hu4e60f3ec390bb8547463b9987cc69227_23669_750x0_resize_q100_bgffffff_box_3.jpg" type=image/jpg alt="Ajout de l&rsquo;utilisateur au groupe docker et tester la version installée" style=max-width:700px>
+</picture>
+</a>
+</figure>
+</div></p>
+<p>Docker est maintenant installé et fonctionnel.</p>
+<h2 id=installation-de-portainer>Installation de Portainer.</h2>
+<p>Portainer est une sorte d&rsquo;interface graphique pour gérer les conteneurs Docker.
+Il permet de créer des containers, et d&rsquo;utiliser des fichiers Docker-compose ou Kubernetes pour créer des stacks (ensemble de conteneurs). Nous verrons cela dans d&rsquo;autres articles.</p>
+<p>Création d&rsquo;un volume Docker.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo docker volume create portainer_data
+</code></pre></div><p>Téléchargement et installation de l&rsquo;image (container) Portainer</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo docker run -d -p 8000:8000 -p 9000:9000 --name<span style=color:#f92672>=</span>portainer --restart<span style=color:#f92672>=</span>always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+</code></pre></div><p>Vérifier la version et la présence de ce dernier avec la commande <code>docker ps</code>.
+<div class="row text-center">
+<figure class="col border border-light text-center bg-light p-2">
+<a href=/articles/docker_installation_debian_11/img/docker_ps.png>
+<picture class=justify-align-center>
+<source sizes=" (min-width: 576px) 55vw ,(min-width: 768px) 80vw , (min-width: 1200px) 40vw , (min-width: 1400px) 30vw ,80vw" srcset="/articles/docker_installation_debian_11/img/docker_ps_hu06c6c7cd5c5da67d151cd6fce46d78d9_27731_320x0_resize_q100_h1_box_3.webp 320w, /articles/docker_installation_debian_11/img/docker_ps_hu06c6c7cd5c5da67d151cd6fce46d78d9_27731_450x0_resize_q100_h1_box_3.webp 450w, /articles/docker_installation_debian_11/img/docker_ps_hu06c6c7cd5c5da67d151cd6fce46d78d9_27731_600x0_resize_q100_h1_box_3.webp 600w, /articles/docker_installation_debian_11/img/docker_ps_hu06c6c7cd5c5da67d151cd6fce46d78d9_27731_750x0_resize_q100_h1_box_3.webp 750w" type=image/webp>
+<img src="/articles/docker_installation_debian_11/img/docker_ps_hu06c6c7cd5c5da67d151cd6fce46d78d9_27731_320x0_resize_q100_bgffffff_box_3.jpg, /articles/docker_installation_debian_11/img/docker_ps_hu06c6c7cd5c5da67d151cd6fce46d78d9_27731_450x0_resize_q100_bgffffff_box_3.jpg, /articles/docker_installation_debian_11/img/docker_ps_hu06c6c7cd5c5da67d151cd6fce46d78d9_27731_600x0_resize_q100_bgffffff_box_3.jpg, /articles/docker_installation_debian_11/img/docker_ps_hu06c6c7cd5c5da67d151cd6fce46d78d9_27731_750x0_resize_q100_bgffffff_box_3.jpg" type=image/jpg alt="Docker PS" style=max-width:700px>
+</picture>
+</a>
+</figure>
+</div></p>
+<h3 id=première-connexion>Première connexion.</h3>
+<p>Ouvrez votre navigateur et connectez-vous à l&rsquo;interface avec <code>ip_de_votre_serveur:9000</code></p>
+<ul>
+<li>Renseigner un nom d&rsquo;utilisateur et un mot de passe solide.</li>
+<li>Sélectionner <code>Get Started</code> pour se connecter à l&rsquo;environnement local.
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js></script>
+<div class="row justify-content-center">
+<div class="col col-lg-4 py-1 align-self-center">
+<a href=https://mcflypartages.fr/articles/docker_installation_debian_11/premiere_connexion/Portainer_premiere_connexion_1.png data-lightbox=x>
+<picture>
+<source srcset=https://mcflypartages.fr/articles/docker_installation_debian_11/premiere_connexion/Portainer_premiere_connexion_1_hu2eb3a6a4e32a2c36f39a7f891820bf08_40010_200x0_resize_q50_h2_box_3.webp type=image/webp>
+<img src=https://mcflypartages.fr/articles/docker_installation_debian_11/premiere_connexion/Portainer_premiere_connexion_1_hu2eb3a6a4e32a2c36f39a7f891820bf08_40010_200x0_resize_q100_bgffffff_box_3.jpg type=image/jpg alt=https://mcflypartages.fr/articles/docker_installation_debian_11/premiere_connexion/Portainer_premiere_connexion_1.png>
+</picture>
+</a>
+</div>
+<div class="col col-lg-4 py-1 align-self-center">
+<a href=https://mcflypartages.fr/articles/docker_installation_debian_11/premiere_connexion/portainer_premiere_connexion_2.png data-lightbox=x>
+<picture>
+<source srcset=https://mcflypartages.fr/articles/docker_installation_debian_11/premiere_connexion/portainer_premiere_connexion_2_hu4789f9c601c6820b9cfff915318347fe_73076_200x0_resize_q50_h2_box_3.webp type=image/webp>
+<img src=https://mcflypartages.fr/articles/docker_installation_debian_11/premiere_connexion/portainer_premiere_connexion_2_hu4789f9c601c6820b9cfff915318347fe_73076_200x0_resize_q100_bgffffff_box_3.jpg type=image/jpg alt=https://mcflypartages.fr/articles/docker_installation_debian_11/premiere_connexion/portainer_premiere_connexion_2.png>
+</picture>
+</a>
+</div>
+</div>
+</li>
+</ul>
+<p>
+<div class="row text-center">
+<figure class="col border border-light text-center bg-light p-2">
+<a href=/articles/docker_installation_debian_11/img/portainer_page_acceuil.png>
+<picture class=justify-align-center>
+<source sizes=" (min-width: 576px) 55vw ,(min-width: 768px) 80vw , (min-width: 1200px) 40vw , (min-width: 1400px) 30vw ,80vw" srcset="/articles/docker_installation_debian_11/img/portainer_page_acceuil_hu3ffd1474d81702f308f321f6138d16d1_68509_320x0_resize_q100_h1_box_3.webp 320w, /articles/docker_installation_debian_11/img/portainer_page_acceuil_hu3ffd1474d81702f308f321f6138d16d1_68509_450x0_resize_q100_h1_box_3.webp 450w, /articles/docker_installation_debian_11/img/portainer_page_acceuil_hu3ffd1474d81702f308f321f6138d16d1_68509_600x0_resize_q100_h1_box_3.webp 600w, /articles/docker_installation_debian_11/img/portainer_page_acceuil_hu3ffd1474d81702f308f321f6138d16d1_68509_750x0_resize_q100_h1_box_3.webp 750w" type=image/webp>
+<img src="/articles/docker_installation_debian_11/img/portainer_page_acceuil_hu3ffd1474d81702f308f321f6138d16d1_68509_320x0_resize_q100_bgffffff_box_3.jpg, /articles/docker_installation_debian_11/img/portainer_page_acceuil_hu3ffd1474d81702f308f321f6138d16d1_68509_450x0_resize_q100_bgffffff_box_3.jpg, /articles/docker_installation_debian_11/img/portainer_page_acceuil_hu3ffd1474d81702f308f321f6138d16d1_68509_600x0_resize_q100_bgffffff_box_3.jpg, /articles/docker_installation_debian_11/img/portainer_page_acceuil_hu3ffd1474d81702f308f321f6138d16d1_68509_750x0_resize_q100_bgffffff_box_3.jpg" type=image/jpg alt="Page d&rsquo;accueil de Portainer" style=max-width:700px>
+</picture>
+</a>
+</figure>
+</div></p>
+<h2 id=désinstaller-docker>Désinstaller Docker.</h2>
+<p>Si vous souhaitez supprimer Docker (cela supprimera tous les containers installés)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt remove docker docker-engine docker.io containerd runc
+</code></pre></div><h2 id=conclusion>Conclusion.</h2>
+<p>Vous avez à présent la possibilité de tester n&rsquo;importe quelle application sans devoir toucher un seul fichier de votre système.</p>
+<h2 id=sources>Sources.</h2>
+<ul>
+<li><a href=https://docs.docker.com/engine/install/debian/ title=https://docs.docker.com/engine/install/debian/ target=_blank rel=noreferrer>https://docs.docker.com/engine/install/debian/</a></li>
+<li><a href=https://docs.portainer.io/v/ce-2.6/start/install/server/docker/linux title=https://docs.portainer.io/v/ce-2.6/start/install/server/docker/linux target=_blank rel=noreferrer>https://docs.portainer.io/v/ce-2.6/start/install/server/docker/linux</a></li>
+</ul>
+</div>
+</div>
+<div class="col-xl-3 d-none d-xl-block">
+<div>
+<h3 class=text-center>Sommaire</h3>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#installation-de-docker>Installation de Docker.</a>
+<ul>
+<li><a href=#ajout-dun-utilisateur>Ajout d&rsquo;un utilisateur.</a></li>
+</ul>
+</li>
+<li><a href=#installation-de-portainer>Installation de Portainer.</a>
+<ul>
+<li><a href=#première-connexion>Première connexion.</a></li>
+</ul>
+</li>
+<li><a href=#désinstaller-docker>Désinstaller Docker.</a></li>
+<li><a href=#conclusion>Conclusion.</a></li>
+<li><a href=#sources>Sources.</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</article>
+</div>
+</section>
+<section class=bg-light>
+<div class=container>
+<div class="row justify-content-evenly p-3">
+<div class="col-6 text-center">
+<h5>Partager</h5>
+<br>
+<ul class=list-inline>
+<li class=list-inline-item>
+<a href="https://twitter.com/intent/tweet?hashtags=codingnconcepts&url=https%3a%2f%2fmcflypartages.fr%2farticles%2fdocker_installation_debian_11%2f&text=Comment%20installer%20Docker%20et%20Docker%20Compose%20sur%20Debian%2011." target=_blank rel=noreferrer alt="Partager sur Twitter">
+<i class="bi bi-twitter"></i>
+</a>
+</li>
+<li class=list-inline-item>
+<a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fmcflypartages.fr%2farticles%2fdocker_installation_debian_11%2f" target=_blank rel=noreferrer alt="Partager sur Facebook">
+<i class="bi bi-facebook"></i>
+</a>
+</li>
+<li class=list-inline-item>
+<a href="https://api.whatsapp.com/send?text=Comment%20installer%20Docker%20et%20Docker%20Compose%20sur%20Debian%2011.%2c%20par%20McFlyPartages%0aComment%20installer%20Docker%20et%20Docker%20Compose%20sur%20Debian%2011.%0a%0ahttps%3a%2f%2fmcflypartages.fr%2farticles%2fdocker_installation_debian_11%2f%0a" target=_blank rel=noreferrer alt="Partager via WhatApp">
+<i class="bi bi-whatsapp"></i>
+</a>
+</li>
+<li class=list-inline-item>
+<a href="https://telegram.me/share/url?text=Comment%20installer%20Docker%20et%20Docker%20Compose%20sur%20Debian%2011.%2c%20par%20McFlyPartages%0aComment%20installer%20Docker%20et%20Docker%20Compose%20sur%20Debian%2011.%0a%0ahttps%3a%2f%2fmcflypartages.fr%2farticles%2fdocker_installation_debian_11%2f%0a&url=https%3a%2f%2fmcflypartages.fr%2farticles%2fdocker_installation_debian_11%2f" target=_blank rel=noreferrer alt="Partager via Telegram">
+<i class="bi bi-telegram"></i>
+</a>
+</li>
+<li class=list-inline-item>
+<a href="mailto:?subject=McFlyPartages - Comment%20installer%20Docker%20et%20Docker%20Compose%20sur%20Debian%2011..&body=Comment%20installer%20Docker%20et%20Docker%20Compose%20sur%20Debian%2011.%2c%20par%20McFlyPartages%0aComment%20installer%20Docker%20et%20Docker%20Compose%20sur%20Debian%2011.%0a%0ahttps%3a%2f%2fmcflypartages.fr%2farticles%2fdocker_installation_debian_11%2f%0a" target=_blank rel=noreferrer alt="Partager par Email">
+<i class="bi bi-envelope"></i>
+</a>
+</li>
+</ul>
+</div>
+<div class="col-6 text-center">
+<h5>Participer</h5><br>
+<a class=text-decoration-none href=https://github.com/McFlyPartages/mcflypartages.github.io/edit/source/content/articles/docker_installation_debian_11/index.md title="Corriger/Modifier cette page" target=_blank rel=noopener>
+<i class="bi bi-git"></i>
+Modifier cette page
+</a>
+</div>
+<div class="col-12 border-top border-secondary pt-3">
+<a class=text-decoration-none href="mailto:contact@mcflypartages.fr?subject=Problème avec l'article 'Comment%20installer%20Docker%20et%20Docker%20Compose%20sur%20Debian%2011.'&body=https%3a%2f%2fmcflypartages.fr%2farticles%2fdocker_installation_debian_11%2f" title="Signaler un problème par E-mail"><p class=text-center><i class="bi bi-envelope"></i> Problème avec l'article <i class="bi bi-envelope"></i></p></a>
+</div>
+<div class="row justify-content-center border-top border-secondary pt-2">
+</div>
+</div>
+</div>
+</section>
+</div>
+<footer class=bg-light>
+<div class=container>
+<ul class="nav justify-content-end">
+<li class=nav-item><a href=/a-propos class="nav-link px-2 text-muted">A propos</a></li>
+<li class=nav-item><a href=/protection-des-donnees class="nav-link px-2 text-muted">Protection des données</a></li>
+</ul>
+</div>
+<div class="row bg-dark align-items-center p-0 m-0">
+<div class="col text-center align-self-center p-2">
+<ul class=list-inline>
+<li class=list-inline-item>
+<a href=mailto:contact@mcflypartages.fr title=contact@mcflypartages.fr><i class="bi bi-envelope"></i></a>
+</li>
+<li class=list-inline-item>
+<a href=https://github.com/McFlyPartages/ title=https://github.com/McFlyPartages/><i class="bi bi-github"></i></a>
+</li>
+<li class=list-inline-item>
+<a href=https://www.youtube.com/c/McFlyPartages title=https://www.youtube.com/c/McFlyPartages><i class="bi bi-youtube"></i></a>
+</li>
+</ul>
+</div>
+</div>
+<div class=justify-content-center>
+</div>
+<div class="row bg-dark align-items-center p-0 m-0">
+<div class="col text-center align-self-center p-2">
+<p class=text-light>Site web réalisé avec <a href=https://gohugo.io/ alt="Hugo LE générateur de site statique." target=_blank rel=noreferrer><img alt=hugo-logo src=/images/hugo-logo.svg width=auto height=15px></a>. Contenus sous licence <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/ alt="Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International" target=_blank><img alt="Licence Creative Commons 4.0 by-nc-sa" src=https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png></a>
+</div>
+</div>
+</footer>
+</div>
+</body>
+</html>
