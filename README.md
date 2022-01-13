@@ -8,7 +8,7 @@
 * [X] Tags en lowercase
 * [X] Dates FR
 * [X] Rendre tags et catégories cliquable dans la barre latérale
-* [ ] Analyse via [Matomo](https://fr.matomo.org/) presentation [ici](https://zestedesavoir.com/tutoriels/2508/matomo-analytics/)
+* [X] Analyse via [Matomo](https://fr.matomo.org/) presentation [ici](https://zestedesavoir.com/tutoriels/2508/matomo-analytics/)
 * [ ] Monitoring Via [UpTimeRobot](uptimerobot.com)
 * [ ] Afficher HeroImg du Front Matter
 * [X] index.html : ne lister que les articles.
@@ -31,3 +31,5 @@
 * [X] Correction de l'affichage des keywords (suppression [] remplacé par une ", ")
 * [ ] Passage de bootstrap icon a Font Awesome ??
 * [X] Shortcode de citation `{{< quote "Message **citation**" "artiste **anonyme**" >}}`
+* [ ] Ajouter la pagination page d'acceuil,
+* [ ] Ajouter les [articles en relation](https://bout2code.fr/tutos/creer-un-site-avec-hugo/comment-creer-un-site-avec-hugo-partie-7-ajouter-du-contenu-en-relation/)
