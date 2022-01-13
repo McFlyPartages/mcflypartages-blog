@@ -31,5 +31,5 @@
 * [X] Correction de l'affichage des keywords (suppression [] remplacé par une ", ")
 * [ ] Passage de bootstrap icon a Font Awesome ??
 * [X] Shortcode de citation `{{< quote "Message **citation**" "artiste **anonyme**" >}}`
-* [ ] Ajouter la pagination page d'acceuil,
+* [ ] Ajouter la pagination page d'acceuil,https://glennmccomb.com/articles/how-to-build-custom-hugo-pagination/
 * [ ] Ajouter les [articles en relation](https://bout2code.fr/tutos/creer-un-site-avec-hugo/comment-creer-un-site-avec-hugo-partie-7-ajouter-du-contenu-en-relation/)
