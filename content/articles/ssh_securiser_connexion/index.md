@@ -57,10 +57,18 @@ Pour créer une paire de clés, sur votre ordinateur (Linux de préférence).
 
 {{< alert "Vous pouvez générer autant de clé que vous voulez avec la même passphrase par exemple." info >}}
 
+![Crétion de la clé SSH](img/creation_cle_ssh.png)
+
+Aprés avoir affiché les dossiers cachés, regarder dans le dossier `.ssh`.
+![Contenu du dossier SSH](img/dossier_ssh.png)
 
 ## Envoyer la clé publique sur le serveur.
 ### Depuis votre ordinateur.
 `ssh-copy-id -i ~/.ssh/votre_cle.pub -p num_port user@ndd_ou_ip_du_serveur`
+
+{{< alert "Si vous vous êtes déjjà connecté au serveur via SSH, il risque de vous mettre un avertissement, il suffit de taper la commande qu'il vous donne `ssh-keygen -f /home/anthony/.ssh/known_hosts -R XXX.XXX.XXX.XXX`" warning >}}
+
+![Envoi de la clé SSH sur le serveur](img/envoi_cle-ssh_vers_serveur.png)
 
 ### Modifier les paramètres SSH.
 * Connecter vous en SSH sur votre serveur `ssh -p num_port user@ndd_ou_ip_du_serveur` (`-p` est optionnel, si vous avez changé le port SSH par défaut),
