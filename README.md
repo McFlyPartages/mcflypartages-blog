@@ -20,16 +20,17 @@
 * [X] Workflow envoi vers sftp en cour
 * [X] Images : Ajouter shortcodes Gallery + image processing `{{< gallery folder="infos" >}}` infos=le nom du dossier contenant les images
 * [X] Images : Cumuler Render image et traitement responsive multiformat auto Image webP + alternative
-* [ ] Liste article avec hero [ici](https://www.markuptag.com/hero-banner-html-design-in-bootstrap-5/)
-* [X] Shortcode Alerte. `{{< alert "Message **succees**" success >}}` danger/sucess/warning/info.
-* [ ] Ajouter les options (affichage menu etc [ici](https://github.com/razonyang/hugo-theme-bootstrap/tree/master/layouts/partials/sidebar))
-* [X] Render-Link
-* [X] Corriger lien mail dans partials rs
-* [X] Ajouter target_blank dans partial RS rel="noreferrer"
-* [X] Partials SocialShare Ajouter Whatsapp
-* [X] Ajout du Head personalisé en fonction de la page (description et mots clés)
-* [X] Correction de l'affichage des keywords (suppression [] remplacé par une ", ")
-* [ ] Passage de bootstrap icon a Font Awesome ??
-* [X] Shortcode de citation `{{< quote "Message **citation**" "artiste **anonyme**" >}}`
-* [ ] Ajouter la pagination page d'acceuil,
-* [ ] Ajouter les [articles en relation](https://bout2code.fr/tutos/creer-un-site-avec-hugo/comment-creer-un-site-avec-hugo-partie-7-ajouter-du-contenu-en-relation/)
+* [ ] list : Liste article avec hero [ici](https://www.markuptag.com/hero-banner-html-design-in-bootstrap-5/)
+* [X] single : Shortcode Alerte. `{{< alert "Message **succees**" success >}}` danger/sucess/warning/info.
+* [ ] theme : Ajouter les options (affichage menu etc [ici](https://github.com/razonyang/hugo-theme-bootstrap/tree/master/layouts/partials/sidebar))
+* [X] link : Render-Link
+* [X] theme : Corriger lien mail dans partials rs
+* [X] link : Ajouter target_blank dans partial RS rel="noreferrer"
+* [X] single : Partials SocialShare Ajouter Whatsapp
+* [X] single : Ajout du Head personalisé en fonction de la page (description et mots clés)
+* [X] single : Correction de l'affichage des keywords (suppression [] remplacé par une ", ")
+* [ ] theme : Passage de bootstrap icon a Font Awesome ??
+* [X] single : Shortcode de citation `{{< quote "Message **citation**" "artiste **anonyme**" >}}`
+* [X] index : Ajouter la pagination page d'acceuil,https://glennmccomb.com/articles/how-to-build-custom-hugo-pagination/
+* [ ] single : Ajouter les [articles en relation](https://bout2code.fr/tutos/creer-un-site-avec-hugo/comment-creer-un-site-avec-hugo-partie-7-ajouter-du-contenu-en-relation/)
+* [ ] index : Exclure Page de la liste d'article

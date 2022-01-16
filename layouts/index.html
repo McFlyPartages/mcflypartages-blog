@@ -14,11 +14,12 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-lg-8">
-        {{range ($.Site.GetPage "articles").Pages }}
+        {{ range (.Paginator 5).Pages }}
           {{ partial "liste-articles" . }}
-        {{ end }}  
+        {{ end }}
+        {{ partial "pagination" . }}
     </div>
-    
+
     <div class="col-3 d-none d-lg-block">
       
         {{ partial "barre-laterale" . }}

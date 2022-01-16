@@ -30,7 +30,7 @@ enableInlineShortcodes = true
 
 [author]
   name = 'McFly'
-  avatar = 'images/mcfly.webp'
+  avatar = '/images/mcfly.webp'
   description = ""
 
 [markup]
