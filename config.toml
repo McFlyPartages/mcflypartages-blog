@@ -18,15 +18,17 @@ enableInlineShortcodes = true
   # # Background image du jumbotron
   # background = '/images/site/background-dark.jpg'
 
-  # # GitHub repo du site
-  # #gitRepo = 'https://github.com/mcflypartages/mcflypartages.github.io'
-  # # Branche par défaut
-  # #gitBranch = source
   enableTOC = true
-  
+
+  # GitHub repo du site
   gitRepo = "https://github.com/McFlyPartages/mcflypartages-blog"
-  # Default branch of your Git repo
   gitBranch = "testing"
+  enableGitInfo = true
+
+[frontmatter]
+date = ["date", "publishDate"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
+
 
 [author]
   name = 'McFly'
