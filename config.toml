@@ -27,7 +27,7 @@ enableInlineShortcodes = true
 
 [frontmatter]
 date = ["date", "publishDate"]
-lastmod = ["lastmod", ":git", "date", "publishDate"]
+lastmod = ["lastmod", "git", "date", "publishDate"]
 
 
 [author]
