@@ -24,7 +24,7 @@ enableInlineShortcodes = true
   # #gitBranch = source
   enableTOC = true
   
-  gitRepo = "https://github.com/McFlyPartages/mcflypartages.github.io"
+  gitRepo = "https://github.com/McFlyPartages/mcflypartages-blog"
   # Default branch of your Git repo
   gitBranch = "correction"
 
