@@ -26,7 +26,7 @@ enableInlineShortcodes = true
   
   gitRepo = "https://github.com/McFlyPartages/mcflypartages-blog"
   # Default branch of your Git repo
-  gitBranch = "correction"
+  gitBranch = "testing"
 
 [author]
   name = 'McFly'
