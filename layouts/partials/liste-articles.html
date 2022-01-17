@@ -1,3 +1,5 @@
+{{ $date := .Date.Format "02.01.2006" }}
+{{ $lastmod := .Lastmod.Format "02.01.2006" }}
 {{ $mymonths := index $.Site.Data.mois }}
 <a href="{{ .Permalink }}"></a>
     <div class="card p-1 mb-2">
@@ -14,7 +16,11 @@
                 <div class="col">
                     <div class="row">
                         <div class="col-6">
+                            {{ if ne $lastmod $date }}
                             <h6 class="card-subtitle mb-2 text-muted text-center">Mis à Jour : {{ .Lastmod.Day }} {{ index $mymonths (printf "%d" .Lastmod.Month) }} {{ .Lastmod.Year }}</h6>
+                            {{ else }}
+                            <h6 class="card-subtitle mb-2 text-muted text-center">Publié : {{ .Date.Day }} {{ index $mymonths (printf "%d" .Date.Month) }} {{ .Date.Year }}</h6>
+                            {{ end }}
                         </div>
                         <div class="col-6">
                             <h6 class="card-subtitle mb-2 text-muted text-center">Temps de lecture {{ .ReadingTime }} {{ if eq .ReadingTime 1 }} minute {{ else }} minutes {{ end }}</h6>

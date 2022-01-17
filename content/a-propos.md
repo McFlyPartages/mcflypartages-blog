@@ -1,7 +1,7 @@
 ---
 title: "A Propos"
 date: 2021-11-19T23:28:02+01:00
-lastmod: 2022-01-10
+lastmod:
 draft: false
 layout : a-propos
 ---

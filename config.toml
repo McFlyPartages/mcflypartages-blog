@@ -25,6 +25,11 @@ enableInlineShortcodes = true
   gitBranch = "testing"
   enableGitInfo = true
 
+[frontmatter]
+date = ["date", "publishDate"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
+
+
 [author]
   name = 'McFly'
   avatar = '/images/mcfly.webp'

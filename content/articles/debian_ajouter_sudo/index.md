@@ -1,7 +1,7 @@
 ---
 title: "Retrouver le sudo dans Debian 10 et 11"
 date: 2021-12-19
-lastmod: 2022-01-09
+lastmod:
 draft: false
 socialshare: true
 article-ha: false
