@@ -152,6 +152,5 @@ Le système Home Assistant est optimisé pour cela et non pour tourner sur un di
 {{< /multiforumhacf >}}
 
 ## Sources.
-* https://www.home-assistant.io/common-tasks/os/#using-external-data-disk
-* https://www.home-assistant.io/installation/
-* https://www.home-assistant.io/installation/raspberrypi#install-home-assistant-operating-system
+* [Using External Data Disk HA Off](https://www.home-assistant.io/common-tasks/os/#using-external-data-disk)
+* [Installation HA Off](https://www.home-assistant.io/installation/)
