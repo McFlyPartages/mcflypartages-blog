@@ -27,7 +27,7 @@
         sizes=" (min-width: 576px) 55vw ,(min-width: 768px) 80vw , (min-width: 1200px) 40vw , (min-width: 1400px) 30vw ,80vw"
         srcset="{{ $small.RelPermalink }} 320w, {{ $medium.RelPermalink }} 450w, {{ $large.RelPermalink }} 600w, {{ $xlarge.RelPermalink }} 750w" type="image/webp">
         <img src="{{ $smalljpg.RelPermalink }}, {{ $mediumjpg.RelPermalink }}, {{ $largejpg.RelPermalink }}, {{ $xlargejpg.RelPermalink }}" type="image/jpg" 
-        alt="{{ if $alt }}{{ $alt }}{{ else if $caption }}{{ $caption | markdownify | plainify }}{{ else }}&nbsp;{{ end }}" {{ with .Title}} title="{{ . }}"{{ end }} style="max-width: 700px;">
+        alt="{{ if $alt }}{{ $alt }}{{ else if $caption }}{{ $caption | markdownify | plainify }}{{ else }}&nbsp;{{ end }}" {{ with .Title}} title="{{ . }}"{{ end }} style="max-width: 700px; max-height: 300px;">
       </picture>
     </a>
     {{ with $caption }}
