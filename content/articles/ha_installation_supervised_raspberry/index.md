@@ -32,6 +32,37 @@ keywords:
 - domotique
 - supervisor
 ---
+Pour cela il y a plusieurs solutions, l’installation sur :
+
+    un nano ordinateur (Raspberry Pi, Orange Pi, etc etc),
+    un NAS que vous détenez déjà,
+    une VM (Machine Virtuel),
+    et encore plein d’autres types d’installation.
+
+Si vous êtes débutant dans la domotique ou linux, je vous conseille de commencer par l’installation sur un Raspberry.
+
+Les avantages d’un RPi :
+
+    consomme peu d’énergie (inférieure à 20 euros par an pour une utilisation 24/24H et 7/7J),
+    bénéficie de multiples connexions (Ethernet, Wifi, Bluetooth),
+    une image d’installation dédiée existe déjà (l’utilisation d’un RPi est recommandé par Home Assistant ),
+    contient tout le nécessaire (en termes de Superviseur),
+    simple d’utilisation.
+
+Les inconvénients :
+
+    Installation sur carte micro SD qui peut provoquer des erreurs d’écritures avec le temps (remplacer la Micro SD par un Disque SSD).
+    Le choix d’installation suivant condamne votre Raspberry à une seule utilité.
+
+Le choix du Raspberry est important, car Home Assistant permet tellement de choses que vous allez vous retrouver avec une installation utilisant beaucoup de mémoires.
+Je vous conseille un Raspberry Pi 3B+ au minimum, mais le mieux reste un Raspberry Pi 4 avec minimum 2Go de RAM.
+Assez bavardé.
+
+
+
+
+
+
 
 Home Assistant est à l'heure actuel, le meilleur système domotique sur le marché (ok, c'est mon avis, mais peu de personne ayant quitté leur ancien système domotique pour Home Assistant y sont revenus).
 
@@ -45,7 +76,7 @@ Il y a plusieurs moyens d'installer Home Assistant et nous allons en voir deux s
 
 {{< alert "Les différentes méthodes sont détaillées [ici](https://forum.hacf.fr/t/conseils-sur-le-choix-methode-ou-type-dinstallation/2068). Si vous êtes débutant, il est préférable de suivre cet article." info >}}
 
-**Pré requis :**
+**Prérequis :**
 * Raspberry Pi est son alimentation
 * Carte Micro SD (classe 2 recommandée)
 * Disque dur SSD (Avec boitier si besoin)*
@@ -55,7 +86,7 @@ Il y a plusieurs moyens d'installer Home Assistant et nous allons en voir deux s
 
 *optionnel pour une installation de test, mais pas pour une installation de production.
 
-{{< alert "Pour que le tout reste joli, il existe des boitier comme Argon One M.2 qui permettent d'intégrer le disque dans un boitier" info >}}
+{{< alert "Pour que le tout reste joli, il existe des boitiers comme Argon One M.2 qui permettent d'intégrer le disque dans un boitier" info >}}
 
 **Pourquoi il utilise une carte Micro SD alors que, sur le net, tout le monde parle de problèmes avec les cartes SD ?**
 
@@ -99,16 +130,18 @@ Sur la première page.
 {{< alert "Cet utilisateur sera l'utilisateur avec tous les droits alors ne pas hésiter à mettre un bon mot de passe." warning >}}
 
 La seconde page concerne l'habitation.
-* Donner un nom  votre installation,
+* Donner un nom votre installation,
 * Définir la localisation de votre domicile,
 * Choisir le fuseau horaire,
 * Rentrer l'[altitude de son domicile](https://www.calcmaps.com/fr/map-elevation/)
 * Choisir le système métrique.
 
-La troisieme vous permet de partager anonymement certaines données, pour aider Home Assistant a améliorer le systeme.
+La troisième vous permet de partager anonymement certaines données, pour aider Home Assistant à améliorer le système.
 
-La quatrieme concerne les matériels détectés automatiquement par Home Assistant chez vous.
+La quatrième concerne les matériels détectés automatiquement par Home Assistant chez vous.
 Vous pouvez passer cette étape, on y reviendra plus tard. Ils peuvent être retrouvés dans `Configuration -> Appareils et Services`
+
+Vous voilà enfin sur l'interface de Home Assistant.
 
 Vous voilà enfin sur l'interface de Home Assistant.
 
@@ -129,8 +162,8 @@ Home Assistant redémarre.
 
 Vos données seront maintenant sur le disque dur et les écritures ne viendront plus abimer votre carte Micro SD.
 
-## Activer les parametres avancés.
-Le mode avancé vous permet d'avoir plus de controle sur votre serveur.
+## Activer les paramètres avancés.
+Le mode avancé vous permet d'avoir plus de contrôle sur votre serveur.
 Cliquer sur votre utilisateur (dans le menu) puis activer `Mode avancé`
 
 {{< gallery folder="modeavance" >}}
@@ -144,8 +177,12 @@ Le système Home Assistant est optimisé pour cela et non pour tourner sur un di
 
 {{< alert "**Connexion en Wifi :** Je n'ai pas parlé de la connexion du Raspberry au Wifi. Ce n'est pas un oubli, mais un système domotique efficace ne repose pas sur du WiFi. De plus, Home Assistant ne le recommande pas" info >}}
 
+https://forum.hacf.fr/t/installer-home-assistant-sur-raspberry-pi-ou-autre-sbc-via-hassos/201
+https://forum.hacf.fr/t/home-assistant-premiere-configuration/679
+
+https://forum.hacf.fr/new-topic?title=Titre+de+votre+probl%C3%A8me&body=%23%23+Mon+probl%C3%A8me%0D%0A%0D%0A%2ARenseigner+votre+probl%C3%A8me%2A%0D%0A%0D%0A%23%23+Le+tutoriel+d%27origine%0D%0A%0D%0Ahttps%3A%2F%2Fforum.hacf.fr%2Ft%2Finstaller-home-assistant-sur-raspberry-pi-ou-autres-sbc-debian-methode-docker-avec-supervisor%2F676%2F%0D%0A%0D%0A%23%23+Ma+configuration%0D%0A___%0D%0A%5Bcenter%5DTexte+%C3%A0+remplacer+par+votre+configuration%5B%2Fcenter%5D%0D%0AComment+r%C3%A9cup%C3%A9rer+ma+configuration+%3A%0D%0ADans+votre+HA%2C+Menu+lat%C3%A9ral+%60Configuration%60+%3E+%60Info%60+%3E+bouton+copier+%3E+%60Pour+Github%60%0D%0A+++%21%5Bimage%7C648x167%2C+75%25%5D%28upload%3A%2F%2F1ietIxFU6nXP1GFrJTzwc2mh0j2.png%29%0D%0A___&category=entraide-home-assistant&tags=aide
+
 ## Sources.
 * https://www.home-assistant.io/common-tasks/os/#using-external-data-disk
 * https://www.home-assistant.io/installation/
 * https://www.home-assistant.io/installation/raspberrypi#install-home-assistant-operating-system
-* 
