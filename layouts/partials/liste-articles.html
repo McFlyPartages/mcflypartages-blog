@@ -42,7 +42,11 @@
                                 {{- end }}</h6>
                         </div>
                     </div>
-                    <p class="card-text">{{ .Summary }}</p>
+                    {{ if .Params.description }}
+                        <p class="card-text">{{ .Params.description }}</p>
+                    {{ else }}
+                        <p class="card-text">{{ .Summary }}</p>   
+                    {{ end }}
                 </div>
             </div>
         </div>
