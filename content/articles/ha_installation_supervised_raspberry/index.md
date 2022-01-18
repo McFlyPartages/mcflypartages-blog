@@ -146,7 +146,10 @@ Le système Home Assistant est optimisé pour cela et non pour tourner sur un di
 
 {{< alert "**Connexion en Wifi :** Je n'ai pas parlé de la connexion du Raspberry au Wifi. Ce n'est pas un oubli, mais un système domotique efficace ne repose pas sur du WiFi. De plus, Home Assistant ne le recommande pas" info >}}
 
-
+{{< multiforumhacf >}}
+    {{< forumhacf "https://forum.hacf.fr/t/installer-home-assistant-sur-raspberry-pi-ou-autre-sbc-via-hassos/201" "Installer Home Assistant sur Raspberry Pi" >}}
+    {{< forumhacf "https://forum.hacf.fr/t/home-assistant-premiere-configuration/679" "Première configuration" >}}
+{{< /multiforumhacf >}}
 
 ## Sources.
 * https://www.home-assistant.io/common-tasks/os/#using-external-data-disk

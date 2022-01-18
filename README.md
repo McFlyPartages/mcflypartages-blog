@@ -3,7 +3,16 @@
 * [X] Ajouter site propulsé dans footer
 * [ ] Bloquer menu (fixed top)
 * [X] Ajouter la modification via GitHub
-* [ ] Shortcode lien Forum HACF.
+* [X] Shortcode lien Forum HACF. 
+```
+Simple lien : 
+{{< forumhacf "lien_vers_forum" "Titre_du_post">}} 
+Multi liens : 
+{{< multiforumhacf >}}
+    {{< forumhacf "lien_vers_forum" "Titre_du_post">}}
+    {{< forumhacf "lien_vers_forum" "Titre_du_post">}}
+{{< /multiforumhacf >}}
+```
 * [X] Catégorie en Capitalise
 * [X] Tags en lowercase
 * [X] Dates FR
