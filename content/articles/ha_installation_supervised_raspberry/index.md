@@ -4,7 +4,7 @@ date: 2022-01-17T14:14:06+01:00
 lastmod: 
 draft: false
 socialshare: true
-article-ha: true
+article_ha: true
 
 heroimg: /images/articles-vierge.webp
 description: "Comment installer Home Assistant sur Raspberry Pi avec HAOS sur MicroSD et déplacer le dossier utilisateur sur un disque dur externe ou interne."
