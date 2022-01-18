@@ -1,12 +1,11 @@
 {{ $date := .Date.Format "02.01.2006" }}
 {{ $lastmod := .Lastmod.Format "02.01.2006" }}
 {{ $mymonths := index $.Site.Data.mois }}
-<a href="{{ .Permalink }}"></a>
-    <div class="card p-1 mb-2">
-        
-        <div class="card-header">
+
+    <div class="card p-1 mb-2"> 
+        <a class="card-header link-dark text-decoration-none" href="{{ .Permalink }}">
             <h4 class="card-title">{{ .Title }}</h4>
-        </div>
+        </a>
 
         <div class="card-body">
             <div class="row">
@@ -51,4 +50,4 @@
         <div class="card-footer text-muted text-center pl-5">
             <a href="{{ .Permalink }}" class="btn btn-primary">Lire l'article</a>
         </div>
-    </div>               
+    </div>      
