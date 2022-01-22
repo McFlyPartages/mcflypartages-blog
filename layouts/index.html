@@ -14,7 +14,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-lg-8">
-        {{ range (.Paginator 5).Pages }}
+        {{ range (.Paginator).Pages }}
           {{ partial "liste-articles" . }}
         {{ end }}
         {{ partial "pagination" . }}
