@@ -31,11 +31,14 @@ Nous ne sommes pas tous ingénieurs en sécurité informatique, mais il y a quan
 Nous allons voir ensemble quelques manipulations simples rendant les attaques plus compliquées.
 
 ## Les différents types de clé.
-Il existe plusieurs types de clés asymétriques, mais les plus connues sont RSA et DSA.
+Il existe plusieurs types de clés asymétriques, mais les plus connues sont RSA, ECDSA, ED25519 et DSA.
+* [DSA](https://fr.wikipedia.org/wiki/Digital_Signature_Algorithm) est plus récent et se voulait être une alternative au RSA (qui à l'époque était breveté). Il serait plus rapide, mais n'est plus supporté depuis openssh v7.
 * [RSA](https://fr.wikipedia.org/wiki/Chiffrement_RSA) est le premier type de clé à être sorti et connait plusieurs versions.
-* [DSA](https://fr.wikipedia.org/wiki/Digital_Signature_Algorithm) est plus récent et se voulait être une alternative au RSA (qui à l'époque était breveté). Il serait plus rapide.
+* [ECDSA](https://fr.wikipedia.org/wiki/Elliptic_curve_digital_signature_algorithm) : Longueurs de clés plus courtes et des opérations de signature et de chiffrement plus rapides, mais semble bénéficier d'une Backdoor US. **conseillé par l'ANSSI**
+* [ED25519](https://fr.wikipedia.org/wiki/EdDSA) : Semble être le nouveau format dans le monde de la cybersécurité longueurs de clés  de 256 bits et des opérations de signature et de chiffrement plus rapides.
 
-Pour ma part, j'utilise le RSA.
+
+Pour ma part, j'utilise le ED25519 car j'utilise que des distributions récentes.
 
 ## Principe simple.
 * Vous générez une clé publique et une privée.
@@ -51,7 +54,7 @@ Il peut vous demander de saisir la passphrase si vous en avez choisi une lors de
 ## Générer sa paire de clés.
 Pour créer une paire de clés, sur votre ordinateur (Linux de préférence).
 * Ouvrir un terminal,
-* Lancer la commande `ssh-keygen -t rsa -b 4096`
+* Lancer la commande `ssh-keygen -t t ed25519`
 
 {{< alert "Par défaut vos clés sont dans `~/.ssh/votre_cle` pour la clé privée et `~/.ssh/votre_cle.pub` pour la clé publique." info >}}
 
@@ -66,9 +69,11 @@ Aprés avoir affiché les dossiers cachés, regarder dans le dossier `.ssh`.
 ### Depuis votre ordinateur.
 `ssh-copy-id -i ~/.ssh/votre_cle.pub -p num_port user@ndd_ou_ip_du_serveur`
 
-{{< alert "Si vous vous êtes déjjà connecté au serveur via SSH, il risque de vous mettre un avertissement, il suffit de taper la commande qu'il vous donne `ssh-keygen -f /home/anthony/.ssh/known_hosts -R XXX.XXX.XXX.XXX`" warning >}}
+{{< alert "Si vous vous êtes déjà connecté au serveur via SSH, il risque de vous mettre un avertissement, il suffit de taper la commande qu'il vous donne `ssh-keygen -f /home/anthony/.ssh/known_hosts -R XXX.XXX.XXX.XXX`" warning >}}
 
 ![Envoi de la clé SSH sur le serveur](img/envoi_cle-ssh_vers_serveur.png)
+
+{{< alert "Si vous essayez d'envoyer la clé d'un utilisateur qui ne peut se connecter en SSH, il faut passer par un compte autorisé puis se connecter a son utilisateur (`su votre_suer`), aller dans son dossier (`cd ~/`) pour créer un dossier `.ssh` (`mkdir .ssh`) et ajouter le fichier `authorized_keys` (`nano authorized_keys`) dans lequel vous devez copier la clé **publique** manuellement " info >}}
 
 ### Modifier les paramètres SSH.
 * Connecter vous en SSH sur votre serveur `ssh -p num_port user@ndd_ou_ip_du_serveur` (`-p` est optionnel, si vous avez changé le port SSH par défaut),
@@ -89,9 +94,13 @@ Si vous avez mis une passphrase lors de la génération, il vous demande de la s
 
 Vous voilà maintenant connecté de manière plus sécurisée.
 
-## Allez plus loin.
+## Allez plus loin avec le fichier `sshd_config`.
 Il est possible de sécuriser encore plus votre serveur par quelques réglages supplémentaires.
 
+Vérifier que cette ligne apparaisse en non commenté. (adapter en fonction du type de clé choisie)
+```
+HostKey /etc/ssh/ssh_host_ed25519_key
+```
 ### Désactiver la connexion par mot de passe.
 Pour désactiver la connexion par mot de passe, dans `/etc/ssh/sshd_config`,
 ```
@@ -111,12 +120,8 @@ PermitRootLogin No
 
 Une fois les parametres changés n'oublier pas de sauvegarder et relancer le service `ssh`.
 
+
 ## Conclusion.
 Je ne suis pas un expert en sécurité informatique, se guide est élaboré à base de plusieurs informations glanées sur le net.
 
 Je suis preneur de toutes autres modifications pouvant apporter plus de sécurité.
-
-
-## A voir.
-
-Il y a aussi Ed25519 qui semble etre encore meilleur. A voir.
