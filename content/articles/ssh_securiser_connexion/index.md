@@ -73,7 +73,7 @@ Aprés avoir affiché les dossiers cachés, regarder dans le dossier `.ssh`.
 
 ![Envoi de la clé SSH sur le serveur](img/envoi_cle-ssh_vers_serveur.png)
 
-{{< alert "Si vous essayez d'envoyer la clé d'un utilisateur qui ne peut se connecter en SSH, il faut passer par un compte autorisé puis se connecter a son utilisateur (`su votre_suer`), aller dans son dossier (`cd ~/`) pour créer un dossier `.ssh` (`mkdir .ssh`) et ajouter le fichier `authorized_keys` (`nano authorized_keys`) dans lequel vous devez copier la clé **publique** manuellement " info >}}
+{{< alert "Si vous essayez d'envoyer la clé d'un utilisateur qui ne peut se connecter en SSH, il faut passer par un compte autorisé puis se connecter à son utilisateur (`su votre_suer`), aller dans son dossier (`cd ~/`) pour créer un dossier `.ssh` (`mkdir .ssh`) et ajouter le fichier `authorized_keys` (`nano authorized_keys`) dans lequel vous devez copier la clé **publique** manuellement " info >}}
 
 ### Modifier les paramètres SSH.
 * Connecter vous en SSH sur votre serveur `ssh -p num_port user@ndd_ou_ip_du_serveur` (`-p` est optionnel, si vous avez changé le port SSH par défaut),
