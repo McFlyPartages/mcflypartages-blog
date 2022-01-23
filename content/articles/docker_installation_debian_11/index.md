@@ -1,5 +1,5 @@
 ---
-title: "Comment installer Docker et Docker Compose sur Debian 11."
+title: "Comment installer Docker et Docker Compose sur Debian/Raspbian 11."
 date: 2022-01-03
 lastmod: 
 draft: false
@@ -7,27 +7,34 @@ socialshare: true
 article-ha: false
 
 hero: /images/articles-vierge.webp
-description: "Comment installer Docker et Docker Compose sur Debian 11."
+description: "Comment installer Docker et Docker Compose sur Debian 11 ou Raspberry Pi OS (Raspbian)."
 
 
 categories:
 - linux
 - docker
+- raspberry
 
 series:
 - docker
 - debian
+- raspberry
   
 tags:
 -  docker
 -  docker compose
 -  debian
+-  raspbian
+-  raspberry pi os
 
 keywords:
 -  docker-ce
 -  docker-compose
 -  debian 11
 -  serveur
+-  raspbian
+-  raspberry pi os
+-  raspberry
 
 ---
 Je ne vais pas m'étendre sur le sujet, mais pour faire simple, il permet d'installer et de tester des applications sans devoir chambouler ou jouer sur la configuration brute du système.
@@ -63,9 +70,13 @@ sudo apt install \
     gnupg \
     lsb-release
 ```
-Ajout de la clé GPG Docker
+Ajout de la clé GPG Docker pour Debian.
 ```bash
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+ou Raspbian / Raspberry Pi OS.
+```bash
+curl -fsSL https://download.docker.com/linux/raspbian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
 Cette ligne suivante permet de choisir la version que l'on souhaite installer, nous prenons la `stable` par défaut.
 ```bash
