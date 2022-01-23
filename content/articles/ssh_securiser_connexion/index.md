@@ -116,3 +116,7 @@ Je ne suis pas un expert en sécurité informatique, se guide est élaboré à b
 
 Je suis preneur de toutes autres modifications pouvant apporter plus de sécurité.
 
+
+## A voir.
+
+Il y a aussi Ed25519 qui semble etre encore meilleur. A voir.
