@@ -22,6 +22,8 @@ tags:
 - haos
 - installation
 - ha-supervised
+- odroid
+- SBC
 
 keywords:
 - raspberry pi
@@ -31,6 +33,8 @@ keywords:
 - home assistant
 - domotique
 - supervisor
+- odroid
+- sbc
 ---
 
 Home Assistant est à l'heure actuel, le meilleur système domotique sur le marché (ok, c'est mon avis, mais peu de personne ayant quitté leur ancien système domotique pour Home Assistant y sont revenus).
