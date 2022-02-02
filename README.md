@@ -43,8 +43,7 @@ Multi liens :
 * [X] index : Ajouter la pagination page d'acceuil,https://glennmccomb.com/articles/how-to-build-custom-hugo-pagination/
 * [ ] single : Ajouter les [articles en relation](https://bout2code.fr/tutos/creer-un-site-avec-hugo/comment-creer-un-site-avec-hugo-partie-7-ajouter-du-contenu-en-relation/)
 * [ ] index : Exclure Page de la liste d'article
-* [ ] Shortcode user HACF en cour
-* [ ] Shortcode User HA
-* [ ] Shortcode liens HA repository etc
+* [X] Shortcode user HACF et HACF `{{< ha/userha "user" haoff >}}` option `hacf` ou `haoff`
+* [X] Shortcode liens HA repositories et BluePrint `{{< haautoconfig bp "url" >}}` option `bp` pour blueprint ou `depot` pour repositories
 * [ ] Image voir pour redimenssion max de la taill d'origine.
   
