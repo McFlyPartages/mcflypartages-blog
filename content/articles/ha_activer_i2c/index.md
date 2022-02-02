@@ -43,7 +43,7 @@ Il est présent aussi sur certain boitier de Raspberry (Ex: Argon One) mais vous
 
 
 ### Activer l'I2C
-[@adamoutier](https://community.home-assistant.io/u/adamoutler) nous a concocté un add-on simplifiant grandement l'activation de la liaison I2C, nommé HAOS i2C Configurator. Il est disponible à partir d'[un dépôt externe](#URL ARTICLE ADDON).
+{{< ha/userha "adamoutier" haoff >}} nous a concocté un add-on simplifiant grandement l'activation de la liaison I2C, nommé HAOS i2C Configurator. Il est disponible à partir d'[un dépôt externe](#URL ARTICLE ADDON).
 
 ![Add-on HAOS i2C Configurator](img/addon_haos_i2c_configurator.png)
 
