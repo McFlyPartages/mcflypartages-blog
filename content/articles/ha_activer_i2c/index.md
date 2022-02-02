@@ -32,7 +32,6 @@ keywords:
 - supervised
 - Raspberry Pi
 ---
-
 {{< quote "I2C (Inter-Integrated Circuit) est un bus informatique qui a émergé de la « guerre des standards » lancée par les acteurs du monde électronique. Conçu par Philips pour les applications de domotique et d’électronique domestique, il permet de relier facilement un microprocesseur et différents circuits, notamment ceux d’un téléviseur moderne : récepteur de la télécommande, réglages des amplificateurs basses fréquences, tuner, horloge, gestion de la prise péritel, etc. " "[Wikipédia](https://fr.wikipedia.org/wiki/I2C)" >}}
 
 En gros il a l'avantage de pouvoir faire passer plusieurs capteurs ou infos sur un nombre de fils restreint et c'est le protocole qui gère l'ordre d'envoi des capteurs pour éviter que deux capteurs parle en même temps. Cela a l'avantage de ne nécessiter que deux câbles :
@@ -43,12 +42,11 @@ Il est présent aussi sur certain boitier de Raspberry (Ex: Argon One) mais vous
 
 
 ### Activer l'I2C
-{{< userha "adamoutier" haoff >}} nous a concocté un add-on simplifiant grandement l'activation de la liaison I2C, nommé HAOS i2C Configurator. Il est disponible à partir d'[un dépôt externe](#URL ARTICLE ADDON).
+{{< userha "adamoutier" haoff >}} nous a concocté un add-on simplifiant grandement l'activation de la liaison I2C, nommé HAOS i2C Configurator. Il est disponible à partir d'[un dépôt externe](./../ha_addon/).
 
 ![Add-on HAOS i2C Configurator](img/addon_haos_i2c_configurator.png)
 
-* Ajouter le dépôt externe via l'image ci-dessous ou manuellement. Adresse du dépôt https://github.com/adamoutler/HassOSConfigurator
-LIENS HA AJOUT DEPOT
+* Ajouter le dépôt externe via {{< haautoconfig depot "https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fadamoutler%2FHassOSConfigurator" >}} ou [manuellement](./../ha_addon/) (url du dépot : https://github.com/adamoutler/HassOSConfigurator).
 * Recharger les dépôts ou faites `F5`,
 * Installer l'add-on HAOS i2C Configurator,
 * Désactiver le `Protection Mode`
