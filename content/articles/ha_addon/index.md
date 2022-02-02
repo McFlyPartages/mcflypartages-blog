@@ -1,11 +1,11 @@
 ---
-title: "Installer le boitier Argon One sur Home Assistant et le controler"
-date: 2021-07-01
+title: "Installer un add-on officiel ou non officiel sur Home Assistant"
+date: 2022-02-02
 lastmod: 
-draft: true
+draft: false
 layout: home-assistant
 hero: /images/articles-vierge.webp
-description: "Ajouter et commander son boitier Argon One M.2 avec Home Assistant"
+description: "Comment ajouter un add-on (plugin ou extension) sur Home Assistant via le store officiel et via un dépôt externe."
 
 socialshare: true
 article-ha: true
@@ -18,67 +18,70 @@ series:
 - home assistant
   
 tags:
-- argon
-- Argon One Add-on
-- HassOS I2C Configurator
-- add-on ha
+- add-on
+- officiel
+- externe
+- HAOS
 
 keywords:
-- Argon
-- Argon One Add-on
-- HassOS I2C Configurator
-- add-on ha
+- add-on
+- extension
+- plugin
+- haos
+- store officielle
+- externe
 ---
+Les add-ons permettent d’ajouter des fonctions, services ou autres à votre Home Assistant. Des services très connus et reconnus (comme Node-Red, Grafana, InfluxDB, DuckDNS, etc.) sont déjà presque configuré pour communiquer simplement avec votre système domotique.
 
+Il existe deux types d’extensions :
+* Les officielles : reconnues officiellement par Home Assistant,
+* Les non-officielles : nécessitant l'ajout du dépôt GitHub en manuel.
 
+L'installation des extensions étant toujours la même, voici les différentes méthodes.
 
-{{< alert "Message **danger**" success >}}
-{{< quote "Message **citation**" "artiste **anonyme**" >}}
-{{< gallery folder="infos" >}}
+{{< alert "Home assistant a simplifié la chose en mettant à disposition des développeurs un script générant un bouton (pour les BluePrint, Dépots, etc) qui, d'un simple clique, fait les actions à votre place. Cela nécessite simplement de saisir l'adresse de votre instance. ![Bouton Import Dépôt](img/repository_import.svg), ![Bouton Import BluePrint](img/blueprint_import.svg)""info" >}}
 
+## Extension Officielle.
+Pour les extensions officielles, il n'y a rien de compliqué.
 
-Pré requis :
-* Boitier Argon One ou Argone ONE extension
-* [Activer mode Avancé](./../ha_installation_supervised_raspberry/#activer-les-paramètres-avancés) (pour installer l'add-on Terminal & SSH)
+{{< gallery folder="ajoutAddonOff" >}}
 
+Dans Home Assistant, cliquer sur `Configuration`-> `Modules complémentaires, Sauvegardes et Superviseur` -> `Boutique des modules complémentaires`.
+* Rechercher l'add-on,
+* Cliquer dessus,
+* Puis `INSTALLER`
+![Exemple d'add-on avec DuckDNS](img/addon_duck_dns.png)
 
-### Activer l'I2C
-@adamoutioer nous a concocter un add-on simplifiant grandement l'activation de la liason I2C, nommé HAOS i2C Configurator. Il est disponnible a partir d'[un dépot externe](#URL ARTICLE ADDON).
+Les add-ons sont quasiment tous fait pareil.
+Une fois installé vous avez quatre onglets en haut.
+* **Info** : Permet de contrôler l'add-on et donne une description.
+* **Documentation** : Explique son fonctionnement et ses réglages possibles.
+* **Configuration** : Permet de configurer l'add-on,
+* **Journal** : Vous donne les logs sur le fonctionnement de l'add-on.
 
-![Add-on HAOS i2C Configurator](img/addon_haos_i2c_configurator.png)
+Un exemple en image avec l'add-on DuckDNS.
+{{< gallery folder="addonDuckDns" >}}
 
+## Extension non officielle.
 
+Les extensions non officielles permettent aux développeurs de mettre à disposition leur travail sans forcément attendre une validation officielle.
+Cela permet de rendre Home Assistant encore plus extensible.
 
-* Ajouter le dépot externe via l'image ci-dessous ou manuellement. Adresse du dépot https://github.com/adamoutler/HassOSConfigurator
-LIENS HA AJOUT DEPOT
-* Recharger les dépots ou faites `F5`,
-* Installer l'add-on HAOS i2C Configurator,
-* Cliquer sur `DEMARRER`.
-* Verifier les logs de l'add-on et du supervisor.
-{{< gallery folder="log1" >}}
-* Redémarrer deux fois l'hote.
-![Log de l'add-on apres](img/log_addon_apres_redemarrage.png)
-* Vérifier la présence d'I2C dans la liste de matériel `Configuration`-> `Modules complémentaires, Sauvegardes et Superviseur` -> Onglet `Système` -> Fenetre `Host` `...` en bas à droite-> `Matériel`.
-![Présence I2C dans la liste des matériel](img/liste_materiel_i2c.png)
+Pour ajouter un add-on non officiel il va falloir ajouter un nouveau dépôt dans la boutique des modules complémentaires.
 
-Vous pouvez redemarer l'add-on pour confirmer.
-![Confirmer via l'add-on](img/log_relance_addon_i2c_configurator.png)
+Dans Home Assistant, cliquer sur `Configuration`-> `Modules complémentaires, Sauvegardes et Superviseur` -> `Boutique des modules complémentaires` ->`...` en haut à droite-> `Dépôts`. 
 
-Il faut ajouter un nouveau `repositories` puis installer l'add-on.
+* Ajouter le lien du dépôt,
+* Rafraichir la page via `F5` ou via `Rechercher des mises a jour` dans les `...` en haut à droite.
+* Chercher maintenant l'add-on voulu et `INSTALLER`.
 
-Dans Home Assistant, cliquer sur `Configuration`-> `Modules complémentaires, Sauvegardes et Superviseur` -> `Boutique des modules complémentaires` ->`...` en haut à droite-> `Dépots`. 
-Ajouter ce `repositories`.
+{{< alert "Le fonctionnement est identique à un add-on officiel." info >}}
 
 {{< gallery folder="ajoutNouveauDepot" >}}
 
-Puis installer l'add-on **HassOS I2C Configurator**
+## Conclusion
+Nous venons de mettre à disposition de notre instance une multitude de possibilités.
 
-Il n' y a pas de configuration juste le besoin de désactiver le `Protection Mode`
+Nous verrons par la suite quelques add-ons indispensables.
 
-![I2C Configurator](img/haos_i2c_confgurator_parametre.png)
-![Alerte Protection Mode](img/mode_protection_alerte.png)
-
-### Sources
-[Argon One Add-on](https://community.home-assistant.io/t/argon-one-active-cooling-addon/262598)
-[Sujet HA Off addon Hassos I2C Configurator](https://community.home-assistant.io/t/add-on-hassos-i2c-configurator/264167)
-[GitHub Hassos I2C Configurator](https://github.com/adamoutler/HassOSConfigurator)
+{{< forumhacf "https://forum.hacf.fr/t/comment-installer-un-add-on-officiel-et-non-officiel/2071" "Comment installer un add-on officiel et non officiel" >}} 
