@@ -2,7 +2,7 @@
 title: "Installer le boitier Argon One sur Home Assistant et le controler"
 date: 2021-07-01
 lastmod: 
-draft: false
+draft: true
 layout: home-assistant
 hero: /images/articles-vierge.webp
 description: "Ajouter et commander son boitier Argon One M.2 avec Home Assistant"
