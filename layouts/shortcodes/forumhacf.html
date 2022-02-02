@@ -1,4 +1,3 @@
-<button type="button" class="btn btn-outline-primary" href="{{.Get 0}}" title="Lien vers l'article HACF">
+<a type="button" class="btn btn-outline-primary" href="{{.Get 0}}" title="{{.Get 1 | markdownify}}" target="_blank">
   <img src="/images/hacf.png" alt="Liens vers l'article HACF" > {{.Get 1 | markdownify}}
-</button>
-
+</a>

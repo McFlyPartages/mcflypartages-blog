@@ -28,3 +28,15 @@ keywords:
 {{< alert "Message **danger**" success >}}
 {{< quote "Message **citation**" "artiste **anonyme**" >}}
 {{< gallery folder="infos" >}}
+
+HA
+{{< ha/userha "user" haoff >}}
+{{< haautoconfig bp "url" >}}
+Simple lien : 
+{{< forumhacf "lien_vers_forum" "Titre_du_post">}} 
+Multi liens : 
+{{< multiforumhacf >}}
+    {{< forumhacf "lien_vers_forum" "Titre_du_post">}}
+    {{< forumhacf "lien_vers_forum" "Titre_du_post">}}
+{{< /multiforumhacf >}}
+
