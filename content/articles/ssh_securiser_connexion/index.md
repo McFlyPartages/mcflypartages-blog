@@ -54,7 +54,7 @@ Il peut vous demander de saisir la passphrase si vous en avez choisi une lors de
 ## Générer sa paire de clés.
 Pour créer une paire de clés, sur votre ordinateur (Linux de préférence).
 * Ouvrir un terminal,
-* Lancer la commande `ssh-keygen -t t ed25519`
+* Lancer la commande `ssh-keygen -t ed25519`
 
 {{< alert "Par défaut vos clés sont dans `~/.ssh/votre_cle` pour la clé privée et `~/.ssh/votre_cle.pub` pour la clé publique." info >}}
 
