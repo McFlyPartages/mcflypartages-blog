@@ -36,6 +36,7 @@ jobs:
     #    publish_dir: ./public
 
     # https://github.com/marketplace/actions/sftp-deploy
+    # ssh-keygen -m PEM -c "mail-compte-github@mail.com"
     - name: Upload file
       uses: wlixcc/SFTP-Deploy-Action@v1.0
       with:
