@@ -18,7 +18,6 @@ series:
   
 tags:
 - balena etcher
-- 
 
 keywords:
 - balena etcher
