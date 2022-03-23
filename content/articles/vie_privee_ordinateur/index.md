@@ -1,5 +1,5 @@
 ---
-title: "Reprendre le contrôle de ses données et de sa vie privée sur son ordinateurs"
+title: "Reprendre le contrôle de ses données et de sa vie privée sur son ordinateur"
 date: 2022-03-23
 lastmod: 
 draft: false
