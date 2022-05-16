@@ -47,3 +47,4 @@ Multi liens :
 * [X] Shortcode liens HA repositories et BluePrint `{{< haautoconfig bp "url" >}}` option `bp` pour blueprint ou `depot` pour repositories
 * [ ] Image voir pour redimenssion max de la taill d'origine.
   
+essai
